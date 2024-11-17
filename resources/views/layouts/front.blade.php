@@ -10,6 +10,10 @@
     <link rel="shortcut icon" href="{{ asset('img/fav.png') }}" type="image/x-icon">
 
 
+    <meta property="og:title" content="{{ $title }}" />
+    <meta property="og:description" content="Website Resmi {{ env('APP_NAME') }}" />
+    <meta property="og:image" content="{{ asset('img/logo.png') }}" />
+
     <!--=====CSS=======-->
     <link rel="stylesheet" href="{{ asset('techxen') }}/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('techxen') }}/assets/css/fontawesome.css">
