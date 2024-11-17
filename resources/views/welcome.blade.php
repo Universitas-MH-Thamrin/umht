@@ -114,7 +114,7 @@
 
     <!--=====PROJECT AREA START=======-->
 
-    <div class="project sp" style="background-color: transparent;padding-top:0px;">
+    <div class="project sp" style="background-color: transparent;">
         <div class="container">
             <div class="row">
                 <div class="project-slider owl-carousel" data-aos="fade-up" data-aos-duration="800">
@@ -161,7 +161,7 @@
 
     <!--=====ABOUT AREA START=======-->
 
-    <div class="about1 sp" style="padding-top: 0px;">
+    <div class="about1 sp">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
