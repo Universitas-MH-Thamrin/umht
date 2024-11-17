@@ -233,7 +233,7 @@
             <div class="col-12">
                 <div class="mobile-header-elements">
                     <div class="mobile-logo">
-                        <a href="javascript:void(0)"><img src="{{ asset('techxen') }}/assets/img/logo/header-logo1.png"
+                        <a href="javascript:void(0)"><img src="{{ asset('img/logo.png') }}" style="width: 200px;"
                                 alt=""></a>
                     </div>
                     <div class="mobile-nav-icon">
@@ -246,7 +246,7 @@
 
     <div class="mobile-sidebar d-block d-lg-none">
         <div class="logo-m">
-            <a href="index-javascript:void(0)"><img src="{{ asset('techxen') }}/assets/img/logo/header3-logo.png"
+            <a href="index-javascript:void(0)"><img src="{{ asset('img/logo.png') }}" style="width: 200px;background-color:white;padding:10px;border-radius:10px;"
                     alt=""></a>
         </div>
         <div class="menu-close">
@@ -287,100 +287,13 @@
                         </li>
                     </ul>
                 </li>
-                <li><a href="javascript:void(0)">About Us</a></li>
-                <li class="has-dropdown"><a href="#">Service</a>
-                    <ul class="sub-menu">
-                        <li><a href="javascript:void(0)">Service</a></li>
-                        <li><a href="service-details-javascript:void(0)">Service Left</a></li>
-                        <li><a href="service-details-javascript:void(0)">Service Right</a></li>
-                        <li><a href="service-javascript:void(0)">Service Details</a></li>
-                    </ul>
-                </li>
-
-                <li class="has-dropdown"><a href="#">Pages</a>
-                    <ul class="sub-menu">
-                        <li><a href="javascript:void(0)">Contact</a></li>
-                        <li><a href="javascript:void(0)">Team</a></li>
-                        <li><a href="javascript:void(0)">Testimonial</a></li>
-                        <li><a href="javascript:void(0)">404</a></li>
-                    </ul>
-                </li>
-
-                <li class="has-dropdown"><a href="#">Blog</a>
-                    <ul class="sub-menu">
-                        <li><a href="javascript:void(0)">Blog</a></li>
-                        <li><a href="blog-javascript:void(0)">Blog Sidebar</a></li>
-                        <li><a href="blog-details-javascript:void(0)">Details Left</a></li>
-                        <li><a href="blog-details-javascript:void(0)">Details Right</a></li>
-                        <li><a href="blog-javascript:void(0)">Blog Details</a></li>
-                    </ul>
-                </li>
-
-                <li class="has-dropdown"><a href="#">Project</a>
-                    <ul class="sub-menu">
-                        <li><a href="javascript:void(0)">Project</a></li>
-                        <li><a href="project-details-javascript:void(0)">Project Left</a></li>
-                        <li><a href="project-details-javascript:void(0)">Project Right</a></li>
-                        <li><a href="project-javascript:void(0)">Project Details</a></li>
-                    </ul>
-                </li>
+                <li><a href="javascript:void(0)">Menu Mobile Belum wkwk</a></li>
 
             </ul>
 
             <div class="mobile-button">
-                <a class="menu-btn2" href="javascript:void(0)">Learn More <span><i
+                <a class="menu-btn2" href="javascript:void(0)">Akses PMB Online <span><i
                             class="fa-solid fa-arrow-right"></i></span></a>
-            </div>
-
-            <div class="single-footer-items">
-                <h3>Contact Us</h3>
-
-                <div class="contact-box">
-                    <div class="icon">
-                        <img src="{{ asset('techxen') }}/assets/img/icons/footer1-icon1.png" alt="">
-                    </div>
-                    <div class="pera">
-                        <a href="tel:0500222333">0500 222 333</a>
-                    </div>
-                </div>
-
-                <div class="contact-box">
-                    <div class="icon">
-                        <img src="{{ asset('techxen') }}/assets/img/icons/footer1-icon2.png" alt="">
-                    </div>
-                    <div class="pera">
-                        <a href="tel:0356588547">03 5658 8547</a>
-                    </div>
-                </div>
-
-                <div class="contact-box">
-                    <div class="icon">
-                        <img src="{{ asset('techxen') }}/assets/img/icons/footer1-icon3.png" alt="">
-                    </div>
-                    <div class="pera">
-                        <a href="mailto:admin@techxen.org">admin@techxen.org</a>
-                    </div>
-                </div>
-
-                <div class="contact-box">
-                    <div class="icon">
-                        <img src="{{ asset('techxen') }}/assets/img/icons/footer1-icon4.png" alt="">
-                    </div>
-                    <div class="pera">
-                        <a href="mailto:admin@techxen.org">www.techxen.org</a>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="contact-infos">
-                <h3>Our Location</h3>
-                <ul class="social-icon">
-                    <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                    <li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
-                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                </ul>
             </div>
 
         </div>
