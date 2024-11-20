@@ -19,6 +19,9 @@ class UserController extends Controller
 {
     public function index(UserDataTable $dataTable)
     {
+        if (Auth::user()->role != 'admin') {
+            return abort(403, "Akses Dilarang");
+        }
         return $dataTable->render('user.index', [
             'title' => 'List User',
             'datatable' => true
@@ -27,14 +30,21 @@ class UserController extends Controller
 
     public function create()
     {
+        if (Auth::user()->role != 'admin') {
+            return abort(403, "Akses Dilarang");
+        }
         $data = [
             'title' => 'Tambah User',
+            'bidangs' => MyHelper::getBidang()
         ];
         return view('user.create', $data);
     }
 
     public function store(Request $request)
     {
+        if (Auth::user()->role != 'admin') {
+            return abort(403, "Akses Dilarang");
+        }
         $request->validate([
             'name' => ['required'],
             'email' => ['required', 'unique:users,email'],
@@ -59,11 +69,15 @@ class UserController extends Controller
 
     public function edit($id)
     {
+        if (Auth::user()->role != 'admin') {
+            return abort(403, "Akses Dilarang");
+        }
         $user = User::findOrFail($id);
 
         $data = [
             'data' => $user,
             'title' => 'Edit User',
+            'bidangs' => MyHelper::getBidang()
         ];
 
         return view('user.edit', $data);
@@ -71,6 +85,9 @@ class UserController extends Controller
 
     public function update(Request $request, $id)
     {
+        if (Auth::user()->role != 'admin') {
+            return abort(403, "Akses Dilarang");
+        }
         $user = User::findOrFail($id);
         $request->validate([
             'name' => ['required'],
@@ -95,6 +112,9 @@ class UserController extends Controller
 
     public function destroy($id)
     {
+        if (Auth::user()->role != 'admin') {
+            return abort(403, "Akses Dilarang");
+        }
         $user = User::findOrFail($id);
         try {
             $user->delete();

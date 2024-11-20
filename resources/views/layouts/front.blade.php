@@ -10,7 +10,7 @@
     <link rel="shortcut icon" href="{{ asset('img/fav.png') }}" type="image/x-icon">
 
 
-    <meta property="og:title" content="{{ $title }}" />
+    <meta property="og:title" content="{{ $title ?? env('APP_NAME') }}" />
     <meta property="og:description" content="Website Resmi {{ env('APP_NAME') }}" />
     <meta property="og:image" content="{{ asset('img/logo.png') }}" />
 

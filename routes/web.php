@@ -35,8 +35,25 @@ Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.', 'middleware' => 'au
     // Website Modules
     Route::resource('user', \App\Http\Controllers\UserController::class)->except('show');
     Route::resource('slider', \App\Http\Controllers\SliderController::class)->except('show');
-
+    Route::resource('link_terkait', \App\Http\Controllers\LinkTerkaitController::class)->except('show');
+    Route::resource('kategori', \App\Http\Controllers\KategoriController::class)->except('show');
+    Route::resource('berita', \App\Http\Controllers\BeritaController::class)->except('show');
+    Route::resource('folder', \App\Http\Controllers\FolderController::class)->except('show');
+    Route::resource('foto', \App\Http\Controllers\GaleriController::class)->except('show');
+    Route::resource('video', \App\Http\Controllers\VideoController::class)->except('show');
+    Route::resource('faq', \App\Http\Controllers\FaqController::class)->except('show');
     Route::resource('kontak', \App\Http\Controllers\KontakController::class)->except('show');
+    Route::resource('bank_data', \App\Http\Controllers\BankDataController::class)->except('show');
+
+    Route::get('galeri_dropzone/{folder_id}/upload',[App\Http\Controllers\GaleriController::class, 'fileStoreDropzone'])->name('galeri.fileDropzone');
+    Route::post('galeri_dropzone/{folder_id}/upload/store',[App\Http\Controllers\GaleriController::class, 'fileStore'])->name('galeri.fileStore');
+    Route::post('galeri_dropzone/delete',[App\Http\Controllers\GaleriController::class, 'fileDestroy'])->name('galeri.fileDestroy');
+    Route::post('galeri_dropzone/deleteReload',[App\Http\Controllers\GaleriController::class, 'fileDestroyReload'])->name('galeri.fileDestroyReload');
+
+    Route::get('video_dropzone/{folder_id}/upload',[App\Http\Controllers\VideoController::class, 'fileStoreDropzone'])->name('video.fileDropzone');
+    Route::post('video_dropzone/{folder_id}/upload/store',[App\Http\Controllers\VideoController::class, 'fileStore'])->name('video.fileStore');
+    Route::post('video_dropzone/delete',[App\Http\Controllers\VideoController::class, 'fileDestroy'])->name('video.fileDestroy');
+    Route::post('video_dropzone/deleteReload',[App\Http\Controllers\VideoController::class, 'fileDestroyReload'])->name('video.fileDestroyReload');
 });
 
 require __DIR__.'/auth.php';
