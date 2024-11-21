@@ -12,7 +12,7 @@ class LayananController extends Controller
 {
     public function index(LayananDataTable $dataTable)
     {
-        return $dataTable->render('Layanan.index', [
+        return $dataTable->render('layanan.index', [
             'title' => 'List Layanan',
             'datatable' => true
         ]);
@@ -23,7 +23,7 @@ class LayananController extends Controller
         $data = [
             'title' => 'Tambah Layanan',
         ];
-        return view('Layanan.create', $data);
+        return view('layanan.create', $data);
     }
 
     public function store(Request $request)
@@ -61,7 +61,7 @@ class LayananController extends Controller
     public function edit($id)
     {
         $layanan = Layanan::findOrFail($id);
-        return view('Layanan.edit', [
+        return view('layanan.edit', [
             'data' => $layanan,
             'title' => 'Edit Layanan',
         ]);
@@ -103,7 +103,7 @@ class LayananController extends Controller
             return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
 
-        return redirect()->back()->with('success', 'Berhasil mengubah data Layanan.');
+        return redirect()->back()->with('success', 'Berhasil mengubah data layanan.');
     }
 
     public function destroy($id)
@@ -115,6 +115,6 @@ class LayananController extends Controller
             return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
 
-        return redirect()->back()->with('success', 'Berhasil menghapus Layanan.');
+        return redirect()->back()->with('success', 'Berhasil menghapus layanan.');
     }
 }
