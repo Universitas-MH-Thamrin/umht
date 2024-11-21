@@ -85,7 +85,7 @@
                 <div class="col-lg-12">
                     <div class="pera">
                         <p><img src="{{ asset('img/fav.png') }}" alt="" style="width: 20px;">
-                            Website Resmi Universitas MH. Thamrin</p>
+                            Website Resmi {{ env('APP_NAME') }}</p>
                     </div>
                 </div>
             </div>
@@ -98,7 +98,7 @@
                     <div class="col-12">
                         <div class="header-elements">
                             <div class="site-logo">
-                                <a href="index-javascript:void(0)">
+                                <a href="{{ route('front.index') }}">
                                     <img src="{{ asset('img/logo.png') }}" alt="" style="width: 150px;">
                                 </a>
                             </div>
@@ -107,9 +107,106 @@
                             <div class="main-menu-ex main-menu-ex1">
                                 <ul>
 
-                                    <li class=""><a href="#">Home</a></li>
+                                    <li class=""><a href="{{ route('front.index') }}">Home</a></li>
 
-                                    <li class="dropdown-menu-parrent"><a href="#">Tentang <i
+                                    @php
+                                        $primary_menus = \App\Models\DynamicMenu::where('level', 1)
+                                            ->orderBy('code')
+                                            ->get();
+                                    @endphp
+                                    @foreach ($primary_menus as $pm)
+                                        @php
+                                            // cek jika ada secondary menu
+                                            $secondary_menus = \App\Models\DynamicMenu::where(
+                                                'code',
+                                                'LIKE',
+                                                $pm->code . '%',
+                                            )
+                                                ->where('level', 2)
+                                                ->orderBy('code')
+                                                ->get();
+
+                                            // cek link atau submenu
+                                            if ($secondary_menus->count() <= 0) {
+                                                // cek tipe page atau link
+                                                if ($pm->page_id == null) {
+                                                    $pm_link = $pm->link;
+                                                } else {
+                                                    $pm_link = route('page.show', $pm->page->slug);
+                                                }
+                                            } else {
+                                                $pm_link = 'javascript:void(0)';
+                                            }
+                                        @endphp
+                                        <li class="dropdown-menu-parrent">
+                                            <a href="{{ $pm_link }}">
+                                                {{ $pm->nama }}
+                                                @if ($secondary_menus->count() > 0)
+                                                    <i class="fa-solid fa-angle-down"></i>
+                                                @endif
+                                            </a>
+                                            @if ($secondary_menus->count() > 0)
+                                                <ul>
+                                                    @foreach ($secondary_menus as $sm)
+                                                        @php
+                                                            // cek tertiary menu
+                                                            $tertiary_menus = \App\Models\DynamicMenu::where(
+                                                                'code',
+                                                                'LIKE',
+                                                                $sm->code . '%',
+                                                            )
+                                                                ->where('level', 3)
+                                                                ->orderBy('code')
+                                                                ->get();
+
+                                                            // cek link atau submenu
+                                                            if ($tertiary_menus->count() <= 0) {
+                                                                // cek tipe page atau link
+                                                                if ($sm->page_id == null) {
+                                                                    $sm_link = $sm->link;
+                                                                } else {
+                                                                    $sm_link = route('page.show', $sm->page->slug);
+                                                                }
+                                                            } else {
+                                                                $sm_link = 'javascript:void(0)';
+                                                            }
+                                                        @endphp
+                                                        <li>
+                                                            <a href="{{ $sm_link }}">
+                                                                {{ $sm->nama }}
+                                                                @if ($tertiary_menus->count() > 0)
+                                                                    <i class="fa-solid fa-angle-right"></i>
+                                                                @endif
+                                                            </a>
+                                                            @if ($tertiary_menus->count() > 0)
+                                                                <ul>
+                                                                    @foreach ($tertiary_menus as $tm)
+                                                                        @php
+                                                                            // cek link atau submenu
+                                                                            // cek tipe page atau link
+                                                                            if ($tm->page_id == null) {
+                                                                                $tm_link = $tm->link;
+                                                                            } else {
+                                                                                $tm_link = route(
+                                                                                    'page.show',
+                                                                                    $tm->page->slug,
+                                                                                );
+                                                                            }
+                                                                        @endphp
+                                                                        <li><a
+                                                                                href="{{ $tm_link }}">{{ $tm->nama }}</a>
+                                                                        </li>
+                                                                    @endforeach
+                                                                </ul>
+                                                            @endif
+                                                        </li>
+                                                    @endforeach
+                                                </ul>
+                                            @endif
+                                        </li>
+                                    @endforeach
+
+                                    {{-- <li class="dropdown-menu-parrent"><a href="#">Tentang <i
                                                 class="fa-solid fa-angle-down"></i></a>
                                         <ul>
                                             <li><a href="javascript:void(0)">Selayang Pandang <i
@@ -202,7 +299,7 @@
                                             <li><a href="javascript:void(0)">PMB Thamrin </a>
                                             </li>
                                         </ul>
-                                    </li>
+                                    </li> --}}
                                 </ul>
                             </div>
 
@@ -214,11 +311,11 @@
                                     </div>
                                     <div class="headding">
                                         <p>PMB 2024</p>
-                                        <a href="#">Daftar Sekarang!</a>
+                                        <a href="https://pmb.radjakinstitute.id/">Daftar Sekarang!</a>
                                     </div>
                                 </div>
                                 <div class="button">
-                                    <a class="theme-btn1" href="javascript:void(0)">PMB Thamrin <span><i
+                                    <a class="theme-btn1" href="https://pmb.radjakinstitute.id/">PMB Thamrin <span><i
                                                 class="fa-solid fa-arrow-right"></i></span></a>
                                 </div>
                             </div>
@@ -250,8 +347,8 @@
 
     <div class="mobile-sidebar d-block d-lg-none">
         <div class="logo-m">
-            <a href="index-javascript:void(0)"><img src="{{ asset('img/logo.png') }}" style="width: 200px;background-color:white;padding:10px;border-radius:10px;"
-                    alt=""></a>
+            <a href="{{ route('front.index') }}"><img src="{{ asset('img/logo.png') }}"
+                    style="width: 200px;background-color:white;padding:10px;border-radius:10px;" alt=""></a>
         </div>
         <div class="menu-close">
             <i class="fa-solid fa-xmark"></i>
@@ -263,7 +360,7 @@
                     <ul class="sub-menu">
                         <li class="has-dropdown has-dropdown1"><a href="#">Multipage</a>
                             <ul class="sub-menu">
-                                <li><a href="index-javascript:void(0)">Home 1</a></li>
+                                <li><a href="{{ route('front.index') }}">Home 1</a></li>
                                 <li><a href="javascript:void(0)">Home 2</a></li>
                                 <li><a href="javascript:void(0)">Home 3</a></li>
                                 <li><a href="javascript:void(0)">Home 4</a></li>
@@ -307,6 +404,35 @@
 
     @yield('content')
 
+    <!--=====CTA AREA START=======-->
+
+    <div class="cta">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <div class="heading1-w">
+                        <h2 class="title tg-element-title">Siap Bergabung dengan Universitas MH. Thamrin?</h2>
+                        <div class="space16"></div>
+                        <p data-aos="fade-right" data-aos-duration="700">Daftarkan dirimu sekarang dan mulailah
+                            perjalanan akademik bersama Universitas MH Thamrin. Masa depan cemerlang ada di depan mata!
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-5">
+                    <div class="buttons">
+                        <a class="cta-btn1" href="https://pmb.radjakinstitute.id/">Mau Konsultasi Dulu <span><i
+                                    class="fa-solid fa-arrow-right"></i></span></a>
+                        <a class="cta-btn2" href="https://pmb.radjakinstitute.id/">Langsung Akses PMB<span><i
+                                    class="fa-solid fa-arrow-right"></i></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--=====CTA AREA END=======-->
+
     <!--===== FOOTER AREA START =======-->
 
     <div class="footer1 _relative">
@@ -315,12 +441,13 @@
                 <div class="col-lg-4 col-md-6 col-12">
                     <div class="single-footer-items footer-logo-area">
                         <div class="footer-logo">
-                            <a href="#"><img src="{{ asset('img/logo.png') }}"
-                                    alt="" style="width: 200px;"></a>
+                            <a href="#"><img src="{{ asset('img/logo.png') }}" alt=""
+                                    style="width: 200px;"></a>
                         </div>
                         <div class="space20"></div>
                         <div class="heading1">
-                            <p>Jl. H. Bokir Bin Dji'un (dh. Raya Pd. Gede) No.23-25, Dukuh, Kramat jati, Jakarta Timur, 13550 </p>
+                            <p>Jl. H. Bokir Bin Dji'un (dh. Raya Pd. Gede) No.23-25, Dukuh, Kramat jati, Jakarta Timur,
+                                13550 </p>
                         </div>
                         <ul class="social-icon">
                             <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
@@ -333,12 +460,13 @@
 
                 <div class="col-lg col-md-6 col-12">
                     <div class="single-footer-items">
-                        <h3>Hubungi Kami</h3>
+                        <h3>Informasi</h3>
 
                         <ul class="menu-list">
-                            <li><a href="#">Kontak</a></li>
-                            <li><a href="#">Program Akademik</a></li>
-                            <li><a href="#">Tentang</a></li>
+                            <li><a href="{{ route('front.kontak') }}">Kontak</a></li>
+                            <li><a href="{{ route('front.faq') }}">FAQs</a></li>
+                            <li><a href="{{ route('front.foto') }}">Galeri Foto</a></li>
+                            <li><a href="{{ route('front.video') }}">Galeri Video</a></li>
                         </ul>
                     </div>
                 </div>
@@ -348,10 +476,12 @@
                         <h3>Link Terkait</h3>
 
                         <ul class="menu-list">
-                            <li><a href="#">Radjak Hospital Group </a></li>
-                            <li><a href="#">Klinik Pratama dr. Abdul Radjak</a></li>
-                            <li><a href="#">Pasadena Village</a></li>
-                            <li><a href="#">Ngopi Lumbung Padi</a></li>
+                            @php
+                                $link_terkaits = \App\Models\LinkTerkait::where('visible', 1)->get();
+                            @endphp
+                            @foreach ($link_terkaits as $item)
+                                <li><a href="{{ $item->link }}">{{ $item->nama }} </a></li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -380,7 +510,7 @@
                     </div>
                     <div class="col-md-7">
                         <div class="coppyright right-area">
-                            <a href="#">Privacy Policy</a>
+                            <a href="{{ route('page.show', 'privacy-policy') }}">Privacy Policy</a>
                         </div>
                     </div>
                 </div>

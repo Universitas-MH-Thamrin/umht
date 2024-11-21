@@ -48,8 +48,8 @@
                                         <label class="form-label">Bidang</label>
                                         <span class="desc"></span>
                                         <select name="role" id="role" class="form-control">
-                                            <option value="admin">Admin</option>
-                                            <option value="user">User</option>
+                                            <option value="admin" {{ $data->role == 'admin' ? 'selected' : '' }}>Admin</option>
+                                            <option value="user" {{ $data->role == 'user' ? 'selected' : '' }}>User</option>
                                         </select>
                                     </div>
 

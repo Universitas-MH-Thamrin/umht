@@ -18,7 +18,9 @@ Route::get('/kontak', [\App\Http\Controllers\FrontPageController::class, 'kontak
 Route::post('kontak', [\App\Http\Controllers\FrontPageController::class, 'kontak'])->name('front.kontak.store');
 
 // Page From Backend
+Route::get('/page/{slug}', [\App\Http\Controllers\FrontPageController::class, 'page_show'])->name('page.show');
 Route::get('/berita', [\App\Http\Controllers\FrontPageController::class, 'berita'])->name('front.berita');
+Route::get('/faq', [\App\Http\Controllers\FrontPageController::class, 'faq'])->name('front.faq');
 Route::get('berita/{slug}', [\App\Http\Controllers\FrontPageController::class, 'berita_detail'])->name('berita.detail');
 Route::get('kategori/{slug}', [\App\Http\Controllers\FrontPageController::class, 'berita_kategori'])->name('berita.kategori');
 Route::get('/foto', [\App\Http\Controllers\FrontPageController::class, 'foto'])->name('front.foto');
@@ -44,6 +46,8 @@ Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.', 'middleware' => 'au
     Route::resource('faq', \App\Http\Controllers\FaqController::class)->except('show');
     Route::resource('kontak', \App\Http\Controllers\KontakController::class)->except('show');
     Route::resource('bank_data', \App\Http\Controllers\BankDataController::class)->except('show');
+    Route::resource('page', \App\Http\Controllers\PageController::class)->except('show');
+    Route::resource('dynamic_menu', \App\Http\Controllers\DynamicMenuController::class)->except('show');
 
     Route::get('galeri_dropzone/{folder_id}/upload',[App\Http\Controllers\GaleriController::class, 'fileStoreDropzone'])->name('galeri.fileDropzone');
     Route::post('galeri_dropzone/{folder_id}/upload/store',[App\Http\Controllers\GaleriController::class, 'fileStore'])->name('galeri.fileStore');

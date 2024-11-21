@@ -27,7 +27,8 @@
                 <div class="col-lg-6">
                     <div class="hero1-all-images">
                         <div class="image1 ">
-                            <img src="{{ asset('techxen') }}/assets/img/hero/hero1-image1.png" alt="">
+                            {{-- <img src="{{ asset('techxen') }}/assets/img/hero/hero1-image1.png" alt=""> --}}
+                            <img src="{{ asset('img/thamrin.png') }}" alt="">
                         </div>
                         <div class="image2 reveal">
                             <img src="{{ asset('techxen') }}/assets/img/hero/hero1-image2.png" alt="">
@@ -283,33 +284,5 @@
     </div>
 
     <!--=====BLOG AREA END=======-->
-
-
-     <!--=====CTA AREA START=======-->
-
-     <div class="cta">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-7">
-                    <div class="heading1-w">
-                        <h2 class="title tg-element-title">Siap Bergabung dengan Universitas MH. Thamrin?</h2>
-                        <div class="space16"></div>
-                        <p data-aos="fade-right" data-aos-duration="700">Daftarkan dirimu sekarang dan mulailah perjalanan akademik bersama Universitas MH Thamrin. Masa depan cemerlang ada di depan mata!</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-5">
-                    <div class="buttons">
-                        <a class="cta-btn1" href="javascript:void(0)">Mau Konsultasi Dulu <span><i
-                                    class="fa-solid fa-arrow-right"></i></span></a>
-                        <a class="cta-btn2" href="javascript:void(0)">Langsung Akses PMB<span><i
-                                    class="fa-solid fa-arrow-right"></i></span></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!--=====CTA AREA END=======-->
 
 @endsection

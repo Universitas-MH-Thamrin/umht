@@ -220,6 +220,8 @@
                                             key="t-tui-paud">Slider/Banner</a></li>
                                     <li><a href="{{ route('dashboard.link_terkait.index') }}" key="t-tui-paud">Link
                                             Terkait</a></li>
+                                    <li><a href="{{ route('dashboard.page.index') }}" key="t-tui-paud">Halaman</a></li>
+                                    <li><a href="{{ route('dashboard.dynamic_menu.index') }}" key="t-tui-paud">Menu</a></li>
                                 </ul>
                             </li>
 
@@ -444,6 +446,34 @@
             })
         })
     </script>
+
+<script>
+    $(document).ready(function() {
+        $('#level').change(function() {
+            var level = $(this).val();
+            if (level == '2') {
+                $('.div_primary').fadeIn();
+            } else if(level == '3') {
+                $('.div_primary').fadeIn();
+                $('.div_secondary').fadeIn();
+            } else {
+                $('.div_primary').hide();
+                $('.div_secondary').hide();
+            }
+        })
+
+        $('#tipe_menu').change(function() {
+            var tipe_menu = $(this).val();
+            if (tipe_menu == 'page') {
+                $('.div_page').fadeIn();
+                $('.div_link').hide();
+            } else if(tipe_menu == 'link') {
+                $('.div_page').hide();
+                $('.div_link').fadeIn();
+            }
+        })
+    })
+</script>
 
     @stack('js')
 </body>
