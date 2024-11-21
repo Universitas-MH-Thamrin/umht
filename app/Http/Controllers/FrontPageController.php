@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Berita;
 use App\Models\Faq;
+use App\Models\Folder;
+use App\Models\Galeri;
 use App\Models\Kontak;
 use App\Models\LinkTerkait;
 use App\Models\Page;
 use App\Models\Slider;
+use App\Models\Video;
 use Illuminate\Http\Request;
 
 class FrontPageController extends Controller
@@ -22,6 +25,32 @@ class FrontPageController extends Controller
             'beritas' => $beritas,
         ];
         return view('welcome', $data);
+    }
+
+    public function berita()
+    {
+        $beritas = Berita::where('visible', 1)->orderBy('id', 'DESC')->paginate(3);
+        $link_terkaits = LinkTerkait::where('visible', 1)->orderBy('id', 'DESC')->get();
+        $data = [
+            'title' => 'Berita ' . env('APP_NAME'),
+            'beritas' => $beritas,
+            'link_terkaits' => $link_terkaits,
+        ];
+        return view('berita', $data);
+    }
+
+    public function berita_detail($slug)
+    {
+        $berita = Berita::where('slug', $slug)->first();
+        $link_terkaits = LinkTerkait::where('visible', 1)->orderBy('id', 'DESC')->get();
+        $berita->save();
+        $data = [
+            'title' => $berita->judul,
+            'data' => $berita,
+            'link_terkaits' => $link_terkaits,
+        ];
+
+        return view('berita_detail', $data);
     }
 
     public function page_show(Request $request, $slug)
@@ -69,5 +98,57 @@ class FrontPageController extends Controller
             'link_terkaits' => $link_terkaits,
         ];
         return view('faq', $data);
+    }
+
+    public function foto()
+    {
+        $fotos = Galeri::orderBy('id', 'DESC')->paginate(6);
+        $link_terkaits = LinkTerkait::where('visible', 1)->orderBy('id', 'DESC')->get();
+        $data = [
+            'title' => 'Galeri ' . env('APP_NAME'),
+            'fotos' => $fotos,
+            'folders' => Folder::all(),
+            'link_terkaits' => $link_terkaits,
+        ];
+        return view('foto', $data);
+    }
+
+    public function foto_folder($folder_id)
+    {
+        $fotos = Galeri::where('folder_id', $folder_id)->orderBy('id', 'DESC')->paginate(6);
+        $link_terkaits = LinkTerkait::where('visible', 1)->orderBy('id', 'DESC')->get();
+        $data = [
+            'title' => 'Galeri Folder ' . env('APP_NAME'),
+            'fotos' => $fotos,
+            'folders' => Folder::all(),
+            'link_terkaits' => $link_terkaits,
+        ];
+        return view('foto', $data);
+    }
+
+    public function video()
+    {
+        $videos = Video::orderBy('id', 'DESC')->paginate(6);
+        $link_terkaits = LinkTerkait::where('visible', 1)->orderBy('id', 'DESC')->get();
+        $data = [
+            'title' => 'Galeri Video ' . env('APP_NAME'),
+            'videos' => $videos,
+            'folders' => Folder::all(),
+            'link_terkaits' => $link_terkaits,
+        ];
+        return view('video', $data);
+    }
+
+    public function video_folder($folder_id)
+    {
+        $videos = Video::where('folder_id', $folder_id)->orderBy('id', 'DESC')->paginate(6);
+        $link_terkaits = LinkTerkait::where('visible', 1)->orderBy('id', 'DESC')->get();
+        $data = [
+            'title' => 'Galeri Video Folder ' . env('APP_NAME'),
+            'videos' => $videos,
+            'folders' => Folder::all(),
+            'link_terkaits' => $link_terkaits,
+        ];
+        return view('video', $data);
     }
 }

@@ -464,6 +464,7 @@
 
                         <ul class="menu-list">
                             <li><a href="{{ route('front.kontak') }}">Kontak</a></li>
+                            <li><a href="{{ route('front.berita') }}">Berita</a></li>
                             <li><a href="{{ route('front.faq') }}">FAQs</a></li>
                             <li><a href="{{ route('front.foto') }}">Galeri Foto</a></li>
                             <li><a href="{{ route('front.video') }}">Galeri Video</a></li>

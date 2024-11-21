@@ -222,62 +222,27 @@
             </div>
             <div class="space30"></div>
             <div class="row">
-                <div class="col-lg-4">
-                    <div class="blog-box" data-aos="zoom-in-up" data-aos-duration="1100">
-                        <div class="image image-anime">
-                            <img src="{{ asset('techxen') }}/assets/img/blog/blog-img1.png" alt="">
-                        </div>
-                        <div class="heading">
-                            <div class="tags">
-                                <a href="#"><img src="{{ asset('techxen') }}/assets/img/icons/blog-icon1.png"
-                                        alt=""> Muhamad Ahmadin</a>
-                                <a href="#"><img src="{{ asset('techxen') }}/assets/img/icons/blog-icon2.png"
-                                        alt=""> Feb 25, 24</a>
+                @foreach ($beritas as $item)
+                    <div class="col-lg-4">
+                        <div class="blog-box" data-aos="zoom-in-up" data-aos-duration="1100">
+                            <div class="image image-anime">
+                                <img src="{{ $item->thumbnail ? url(Storage::url($item->thumbnail)) : asset('img/img-placeholder.webp') }}" alt="" style="height: 300px;object-fit: cover;">
                             </div>
-                            <h4><a href="javascript:void(0)">LPSP Universitas MH Thamrin.</a></h4>
-                            <a href="javascript:void(0)" class="learn"> Selengkapnya <span><i
-                                        class="fa-solid fa-arrow-right"></i></span></a>
+                            <div class="heading">
+                                <div class="tags">
+                                    <a href="#"><img src="{{ asset('techxen') }}/assets/img/icons/blog-icon1.png"
+                                            alt=""> {{ $item->user->name }}</a>
+                                    <a href="#"><img src="{{ asset('techxen') }}/assets/img/icons/blog-icon2.png"
+                                            alt="">
+                                            {{ \Carbon\Carbon::parse($item->created_at)->locale('id_ID')->format('d') }} {{ \Carbon\Carbon::parse($item->created_at)->locale('id_ID')->format('M, Y') }}</span></a>
+                                </div>
+                                <h4><a href="{{ route('berita.detail', $item->slug) }}">{{ Str::limit($item->judul, 40) }}.</a></h4>
+                                <a href="{{ route('berita.detail', $item->slug) }}" class="learn"> Selengkapnya <span><i
+                                            class="fa-solid fa-arrow-right"></i></span></a>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-lg-4">
-                    <div class="blog-box" data-aos="zoom-in-up" data-aos-duration="900">
-                        <div class="image image-anime">
-                            <img src="{{ asset('techxen') }}/assets/img/blog/blog-img2.png" alt="">
-                        </div>
-                        <div class="heading">
-                            <div class="tags">
-                                <a href="#"><img src="{{ asset('techxen') }}/assets/img/icons/blog-icon1.png"
-                                        alt=""> Muhamad Ahmadin</a>
-                                <a href="#"><img src="{{ asset('techxen') }}/assets/img/icons/blog-icon2.png"
-                                        alt=""> Feb 25, 24</a>
-                            </div>
-                            <h4><a href="javascript:void(0)">TMS Universitas MH Thamrin.</a></h4>
-                            <a href="javascript:void(0)" class="learn"> Selengkapnya <span><i
-                                        class="fa-solid fa-arrow-right"></i></span></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4">
-                    <div class="blog-box" data-aos="zoom-in-up" data-aos-duration="700">
-                        <div class="image image-anime">
-                            <img src="{{ asset('techxen') }}/assets/img/blog/blog-img3.png" alt="">
-                        </div>
-                        <div class="heading">
-                            <div class="tags">
-                                <a href="#"><img src="{{ asset('techxen') }}/assets/img/icons/blog-icon1.png"
-                                        alt=""> Muhamad Ahmadin</a>
-                                <a href="#"><img src="{{ asset('techxen') }}/assets/img/icons/blog-icon2.png"
-                                        alt=""> Feb 25, 24</a>
-                            </div>
-                            <h4><a href="javascript:void(0)">PMB Universitas MH Thamrin.</a></h4>
-                            <a href="javascript:void(0)" class="learn"> Selengkapnya <span><i
-                                        class="fa-solid fa-arrow-right"></i></span></a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
 
             </div>
         </div>
