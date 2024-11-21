@@ -216,9 +216,9 @@
     <!--=====CTA AREA START=======-->
 
     <div class="cta4">
-        <a href="">
+        <a href="{{ $cta ? $cta->link : 'javascript:void(0)' }}" target="_blank">
             <div class="container">
-                <img src="{{ asset('img/cta.jpg') }}" alt="" style="width: 100%;">
+                <img src="{{ $cta ? url(Storage::url($cta->image)) : asset('img/cta.jpg') }}" alt="" style="width: 100%;">
             </div>
         </a>
     </div>

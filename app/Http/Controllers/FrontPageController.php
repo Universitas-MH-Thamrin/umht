@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Berita;
+use App\Models\Cta;
 use App\Models\Faq;
 use App\Models\Folder;
 use App\Models\Galeri;
@@ -21,11 +22,13 @@ class FrontPageController extends Controller
         $sliders = Slider::where('visible', 1)->orderBy('id', 'DESC')->get();
         $beritas = Berita::where('visible', 1)->orderBy('id', 'DESC')->take(3)->get();
         $layanans = Layanan::where('visible', 1)->orderBy('urutan', 'ASC')->get();
+        $cta = Cta::where('visible', 1)->first();
         $data = [
             'title' => env('APP_NAME'),
             'sliders' => $sliders,
             'beritas' => $beritas,
             'layanans' => $layanans,
+            'cta' => $cta,
         ];
         return view('welcome', $data);
     }
