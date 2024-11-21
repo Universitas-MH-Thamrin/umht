@@ -19,52 +19,6 @@
         </div>
     </div>
 
-    <!--=====HERO AREA END=======-->
-
-    <section class="hero10-benar">
-        <div class="container-fluid p-0">
-            <div class="row">
-                <div class="col-12">
-                    <div class="marquee-wrap marquee-wrap-inner">
-                        <div class="marquee-text">
-                            <div class="brand-single-box">
-                                <img src="{{ asset('img/logo.png') }}" alt="" style="width: 150px;">
-                            </div>
-                            <div class="brand-single-box">
-                                <img src="{{ asset('img/logo.png') }}" alt="" style="width: 150px;">
-                            </div>
-                            <div class="brand-single-box">
-                                <img src="{{ asset('img/logo.png') }}" alt="" style="width: 150px;">
-                            </div>
-                            <div class="brand-single-box">
-                                <img src="{{ asset('img/logo.png') }}" alt="" style="width: 150px;">
-                            </div>
-                            <div class="brand-single-box">
-                                <img src="{{ asset('img/logo.png') }}" alt="" style="width: 150px;">
-                            </div>
-                            <div class="brand-single-box">
-                                <img src="{{ asset('img/logo.png') }}" alt="" style="width: 150px;">
-                            </div>
-                            <div class="brand-single-box">
-                                <img src="{{ asset('img/logo.png') }}" alt="" style="width: 150px;">
-                            </div>
-                            <div class="brand-single-box">
-                                <img src="{{ asset('img/logo.png') }}" alt="" style="width: 150px;">
-                            </div>
-                            <div class="brand-single-box">
-                                <img src="{{ asset('img/logo.png') }}" alt="" style="width: 150px;">
-                            </div>
-                            <div class="brand-single-box">
-                                <img src="{{ asset('img/logo.png') }}" alt="" style="width: 150px;">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="slider-after"></div>
-        </div>
-    </section>
 
     <!--=====SERVICE DETAILS AREA START=======-->
 
