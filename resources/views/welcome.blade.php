@@ -11,10 +11,11 @@
                     <div class="main-headding">
                         <span class="span" data-aos="zoom-in-left" data-aos-duration="700"><img
                                 src="{{ asset('img/fav.png') }}" alt=""> {{ env('APP_NAME') }}</span>
-                        <h1 class="title tg-element-title">Website Resmi Universitas<span
-                                class="after"> MH. Thamrin</span></h1>
+                        <h1 class="title tg-element-title">Website Resmi Universitas<span class="after"> MH. Thamrin</span>
+                        </h1>
                         <div class="space16"></div>
-                        <p>Bergabunglah bersama Universitas MH Thamrin untuk membangun karier cemerlang di dunia profesional.</p>
+                        <p>Bergabunglah bersama Universitas MH Thamrin untuk membangun karier cemerlang di dunia
+                            profesional.</p>
 
                         <div class="space30"></div>
                         <div class="buttons">
@@ -184,15 +185,20 @@
                 <div class="col-lg-6">
                     <div class="heading1">
                         <span class="span" data-aos="zoom-in-left" data-aos-duration="700"><img
-                                src="{{ asset('techxen') }}/assets/img/icons/span1.png" alt="">Selamat Datang di Universitas MH Thamrin</span>
+                                src="{{ asset('techxen') }}/assets/img/icons/span1.png" alt="">Selamat Datang di
+                            Universitas MH Thamrin</span>
                         <h2 class="title tg-element-title">Masa Depan Dimulai di Sini!</h2>
                         <div class="space16"></div>
-                        <p data-aos="fade-left" data-aos-duration="800">Universitas MH Thamrin hadir untuk mencetak lulusan unggul yang siap bersaing di dunia kerja global. Dengan pengalaman lebih dari [X tahun], kami menawarkan program pendidikan berkualitas, kurikulum relevan dengan industri, dan dukungan pengembangan karier yang komprehensif.</p>
+                        <p data-aos="fade-left" data-aos-duration="800">Universitas MH Thamrin hadir untuk mencetak
+                            lulusan unggul yang siap bersaing di dunia kerja global. Dengan pengalaman lebih dari [X tahun],
+                            kami menawarkan program pendidikan berkualitas, kurikulum relevan dengan industri, dan dukungan
+                            pengembangan karier yang komprehensif.</p>
 
                         <ul class="list" data-aos="fade-left" data-aos-duration="1100">
                             <li><span><i class="fa-solid fa-check"></i></span> Program Sarjana dan Pascasarjana</li>
                             <li><span><i class="fa-solid fa-check"></i></span> Kurikulum berbasis kebutuhan industri </li>
-                            <li><span><i class="fa-solid fa-check"></i></span> Kerja sama dengan perusahaan nasional dan internasional.</li>
+                            <li><span><i class="fa-solid fa-check"></i></span> Kerja sama dengan perusahaan nasional dan
+                                internasional.</li>
                         </ul>
                         <div class="space30"></div>
                         <div class="" data-aos="fade-left" data-aos-duration="900">
@@ -207,6 +213,18 @@
 
     <!--=====ABOUT AREA END=======-->
 
+    <!--=====CTA AREA START=======-->
+
+    <div class="cta4">
+        <a href="">
+            <div class="container">
+                <img src="{{ asset('img/cta.jpg') }}" alt="" style="width: 100%;">
+            </div>
+        </a>
+    </div>
+
+    <!--=====CTA AREA END=======-->
+
     <!--=====BLOG AREA START=======-->
 
     <div class="blog sp">
@@ -215,7 +233,8 @@
                 <div class="col-lg-8 m-auto text-center">
                     <div class="heading1">
                         <span class="span" data-aos="zoom-in-left" data-aos-duration="700"><img
-                                src="{{ asset('img/fav.png') }}" alt="" style="width: 20px;"> Informasi & Berita</span>
+                                src="{{ asset('img/fav.png') }}" alt="" style="width: 20px;"> Informasi &
+                            Berita</span>
                         <h2 class="title tg-element-title">Berita Terbaru</h2>
                     </div>
                 </div>
@@ -226,7 +245,8 @@
                     <div class="col-lg-4">
                         <div class="blog-box" data-aos="zoom-in-up" data-aos-duration="1100">
                             <div class="image image-anime">
-                                <img src="{{ $item->thumbnail ? url(Storage::url($item->thumbnail)) : asset('img/img-placeholder.webp') }}" alt="" style="height: 300px;object-fit: cover;">
+                                <img src="{{ $item->thumbnail ? url(Storage::url($item->thumbnail)) : asset('img/img-placeholder.webp') }}"
+                                    alt="" style="height: 300px;object-fit: cover;">
                             </div>
                             <div class="heading">
                                 <div class="tags">
@@ -234,9 +254,12 @@
                                             alt=""> {{ $item->user->name }}</a>
                                     <a href="#"><img src="{{ asset('techxen') }}/assets/img/icons/blog-icon2.png"
                                             alt="">
-                                            {{ \Carbon\Carbon::parse($item->created_at)->locale('id_ID')->format('d') }} {{ \Carbon\Carbon::parse($item->created_at)->locale('id_ID')->format('M, Y') }}</span></a>
+                                        {{ \Carbon\Carbon::parse($item->created_at)->locale('id_ID')->format('d') }}
+                                        {{ \Carbon\Carbon::parse($item->created_at)->locale('id_ID')->format('M, Y') }}</span></a>
                                 </div>
-                                <h4><a href="{{ route('berita.detail', $item->slug) }}">{{ Str::limit($item->judul, 40) }}.</a></h4>
+                                <h4><a
+                                        href="{{ route('berita.detail', $item->slug) }}">{{ Str::limit($item->judul, 40) }}.</a>
+                                </h4>
                                 <a href="{{ route('berita.detail', $item->slug) }}" class="learn"> Selengkapnya <span><i
                                             class="fa-solid fa-arrow-right"></i></span></a>
                             </div>
@@ -250,4 +273,41 @@
 
     <!--=====BLOG AREA END=======-->
 
+    <!--=====SERVICE AREA START=======-->
+
+    <div class="service6 sp bg5" id="service">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 m-auto text-center">
+                    <div class="heading1">
+                        <span class="span" data-aos="zoom-in-left" data-aos-duration="700">Layanan</span>
+                        <h2 class="tg-element-title">Akses Layanan Digital <br><span>UMHT</span></h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space30"></div>
+            <div class="row">
+                @foreach ($layanans as $item)
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-box" data-aos="fade-up" data-aos-duration="700">
+                            <div class="">
+                                <div class="icon">
+                                    <img src="{{ $item->icon ? url(Storage::url($item->icon)) : asset('techxen/assets/img/icons/about-solution-iocn2.png') }}" alt="">
+                                </div>
+                            </div>
+                            <div class="heading6">
+                                <h4><a target="_blank" href="{{ $item->link }}">{{ $item->nama }}</a></h4>
+                                <p>{{ $item->deskripsi }}</p>
+                                <a target="_blank" href="{{ $item->link }}" class="learn">Akses <span><i
+                                            class="fa-solid fa-arrow-right"></i></span></a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+
+    <!--=====SERVICE AREA END=======-->
 @endsection

@@ -7,6 +7,7 @@ use App\Models\Faq;
 use App\Models\Folder;
 use App\Models\Galeri;
 use App\Models\Kontak;
+use App\Models\Layanan;
 use App\Models\LinkTerkait;
 use App\Models\Page;
 use App\Models\Slider;
@@ -19,10 +20,12 @@ class FrontPageController extends Controller
     {
         $sliders = Slider::where('visible', 1)->orderBy('id', 'DESC')->get();
         $beritas = Berita::where('visible', 1)->orderBy('id', 'DESC')->take(3)->get();
+        $layanans = Layanan::where('visible', 1)->orderBy('urutan', 'ASC')->get();
         $data = [
             'title' => env('APP_NAME'),
             'sliders' => $sliders,
             'beritas' => $beritas,
+            'layanans' => $layanans,
         ];
         return view('welcome', $data);
     }

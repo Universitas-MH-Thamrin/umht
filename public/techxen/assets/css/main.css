@@ -3404,7 +3404,7 @@ a.header__search.header-search-btn p {
 * A jQuery menu plugin
 * @version 3.0.6
 * @author Osman Nuri Okumus <onokumus@gmail.com> (https://github.com/onokumus)
-* @license: MIT 
+* @license: MIT
 */
 .metismenu .arrow {
   float: right;
@@ -7242,7 +7242,7 @@ a.header__search.header-search-btn p {
   top: 0;
   height: 500px;
   width: 500px;
-  background-color: #FA6444;
+  background-color: #1A37AA;
   border-radius: 4px;
   z-index: -1;
   transform: rotate(45deg) translateX(-565px);
@@ -13454,7 +13454,7 @@ a.header__search.header-search-btn p {
 }
 
 /*===================
- PRRELOADER AREA CSS 
+ PRRELOADER AREA CSS
  ========================
 */
 /* Preloader */
@@ -19315,7 +19315,7 @@ a.header__search.header-search-btn p {
   display: block;
 }
 
-/* 
+/*
 ++++++++++++++++++++++++++++++++++
 =========nav menu all ==========
 +++++++++++++++++++++++++++++++++
@@ -21996,12 +21996,12 @@ li.has-dropdown1 span {
   animation-fill-mode: forwards;
 }
 
-/* 
+/*
 ++++++++++++++++++++++++++++++++++
 ==== =====nav menu all ====== ======
 +++++++++++++++++++++++++++++++++
 */
-/* 
+/*
 ++++++++++++++++++++++++++++++++++
 ==== =====nav menu all 2 ====== ======
 +++++++++++++++++++++++++++++++++
@@ -22436,12 +22436,12 @@ li.has-dropdown1 span {
   transform: scale(1) translateY(-30px);
 }
 
-/* 
+/*
 ++++++++++++++++++++++++++++++++++
 ==== =====nav menu all 1 ====== ======
 +++++++++++++++++++++++++++++++++
 */
-/* 
+/*
 ++++++++++++++++++++++++++++++++++
 ==== =====nav menu all 2 ====== ======
 +++++++++++++++++++++++++++++++++
@@ -23033,7 +23033,7 @@ li.has-dropdown1 span {
   margin-top: 3px;
 }
 
-/* 
+/*
 ++++++++++++++++++++++++++++++++
 ========nav menu all 2 ======
 ++++++++++++++++++++++++++++++++

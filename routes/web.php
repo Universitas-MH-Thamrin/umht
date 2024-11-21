@@ -37,6 +37,7 @@ Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.', 'middleware' => 'au
     // Website Modules
     Route::resource('user', \App\Http\Controllers\UserController::class)->except('show');
     Route::resource('slider', \App\Http\Controllers\SliderController::class)->except('show');
+    Route::resource('layanan', \App\Http\Controllers\LayananController::class)->except('show');
     Route::resource('link_terkait', \App\Http\Controllers\LinkTerkaitController::class)->except('show');
     Route::resource('kategori', \App\Http\Controllers\KategoriController::class)->except('show');
     Route::resource('berita', \App\Http\Controllers\BeritaController::class)->except('show');
