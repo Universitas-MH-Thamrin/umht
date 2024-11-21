@@ -450,10 +450,9 @@
                                 13550 </p>
                         </div>
                         <ul class="social-icon">
-                            <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                            <li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
-                            <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                            <li><a href="https://www.linkedin.com/school/universitas-mh-thamrin/?originalSubdomain=id"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                            <li><a href="https://www.youtube.com/c/UNIVERSITASMHTHAMRINCHANNEL/videos"><i class="fa-brands fa-youtube"></i></a></li>
+                            <li><a href="https://www.instagram.com/universitasmhthamrin/"><i class="fa-brands fa-instagram"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -488,10 +487,10 @@
                 </div>
 
 
-                <div class="col-lg-3 col-md-6 col-12">
+                <div class="col-lg-2 col-md-6 col-12">
                     <div class="single-footer-items">
                         <h3>Akreditasi</h3>
-                        <img src="{{ asset('img/akreditasi.png') }}" alt="" style="width: 200px;">
+                        <img src="{{ asset('img/akreditasi.png') }}" alt="" style="width: 160px;">
 
                     </div>
                 </div>

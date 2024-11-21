@@ -10,7 +10,7 @@
     <meta content="{{ env('APP_DESC') }}" name="description" />
     <meta content="{{ env('APP_AUTHOR') }}" name="author" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('img/cirebonkab.png') }}">
+    <link rel="shortcut icon" href="{{ asset('img/fav.png') }}">
 
     <!-- Bootstrap Css -->
     <link href="{{ asset('skote') }}/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet"
