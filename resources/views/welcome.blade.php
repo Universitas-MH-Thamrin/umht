@@ -182,7 +182,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-6">
+                <div class="col-lg-6" style="margin-top: 100px;">
                     <div class="heading1">
                         <span class="span" data-aos="zoom-in-left" data-aos-duration="700"><img
                                 src="{{ asset('techxen') }}/assets/img/icons/span1.png" alt="">Selamat Datang di
