@@ -205,101 +205,6 @@
                                             @endif
                                         </li>
                                     @endforeach
-
-                                    {{-- <li class="dropdown-menu-parrent"><a href="#">Tentang <i
-                                                class="fa-solid fa-angle-down"></i></a>
-                                        <ul>
-                                            <li><a href="javascript:void(0)">Selayang Pandang <i
-                                                        class="fa-solid fa-angle-right"></i></a>
-                                                <ul>
-                                                    <li><a href="#">Visi, Misi, Tujuan</a></li>
-                                                    <li><a href="#">Sambutan Rektor</a></li>
-                                                    <li><a href="#">Penghargaan</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="javascript:void(0)">Pimpinan <i
-                                                        class="fa-solid fa-angle-right"></i></a>
-                                                <ul>
-                                                    <li><a href="#">Rektorat</a></li>
-                                                    <li><a href="#">Dekanat</a></li>
-                                                    <li><a href="#">Manajemen</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown-menu-parrent"><a href="#">Akademik <i
-                                                class="fa-solid fa-angle-down"></i></a>
-                                        <ul>
-                                            <li><a href="javascript:void(0)">Kesehatan <i
-                                                        class="fa-solid fa-angle-right"></i></a>
-                                                <ul>
-                                                    <li><a href="#">Prodi Keperawatan</a></li>
-                                                    <li><a href="#">Cek Lainnya</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="javascript:void(0)">Manajemen <i
-                                                        class="fa-solid fa-angle-right"></i></a>
-                                                <ul>
-                                                    <li><a href="#">Ekonomi</a></li>
-                                                    <li><a href="#">Manajemen</a></li>
-                                                    <li><a href="#">Cek Lainnya</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="javascript:void(0)">Pendidikan <i
-                                                        class="fa-solid fa-angle-right"></i></a>
-                                                <ul>
-                                                    <li><a href="#">Cek Lainnya</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="#">Kalender Akademik</a></li>
-                                            <li><a href="#">Kegiatan Akademik</a></li>
-                                            <li><a href="#">Kehidupan Kampus</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li class="dropdown-menu-parrent"><a href="#">Penelitian <i
-                                                class="fa-solid fa-angle-down"></i></a>
-                                        <ul>
-                                            <li><a href="javascript:void(0)">Penelitian Bidang Kesehatan <i
-                                                        class="fa-solid fa-angle-right"></i></a>
-                                                <ul>
-                                                    <li><a href="#">Kesehatan A</a></li>
-                                                    <li><a href="#">Kesehatan B</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="javascript:void(0)">Penelitian Bidang Ekonomi <i
-                                                        class="fa-solid fa-angle-right"></i></a>
-                                                <ul>
-                                                    <li><a href="#">Cek Lainnya</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown-menu-parrent"><a href="#">Pengabdian <i
-                                                class="fa-solid fa-angle-down"></i></a>
-                                        <ul>
-                                            <li><a href="javascript:void(0)">Pengabdian Bidang A <i
-                                                        class="fa-solid fa-angle-right"></i></a>
-                                                <ul>
-                                                    <li><a href="#">Sub A</a></li>
-                                                    <li><a href="#">Sub B</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="javascript:void(0)">Pengabdian Bidang B <i
-                                                        class="fa-solid fa-angle-right"></i></a>
-                                                <ul>
-                                                    <li><a href="#">Sub B</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown-menu-parrent"><a href="#">Penerimaan <i
-                                                class="fa-solid fa-angle-down"></i></a>
-                                        <ul>
-                                            <li><a href="javascript:void(0)">PMB Thamrin </a>
-                                            </li>
-                                        </ul>
-                                    </li> --}}
                                 </ul>
                             </div>
 
@@ -356,44 +261,88 @@
         <div class="mobile-nav">
 
             <ul>
-                <li class="has-dropdown"><a href="#">Home </a>
-                    <ul class="sub-menu">
-                        <li class="has-dropdown has-dropdown1"><a href="#">Multipage</a>
-                            <ul class="sub-menu">
-                                <li><a href="{{ route('front.index') }}">Home 1</a></li>
-                                <li><a href="javascript:void(0)">Home 2</a></li>
-                                <li><a href="javascript:void(0)">Home 3</a></li>
-                                <li><a href="javascript:void(0)">Home 4</a></li>
-                                <li><a href="javascript:void(0)">Home 5</a></li>
-                                <li><a href="javascript:void(0)">Home 6</a></li>
-                                <li><a href="javascript:void(0)">Home 7</a></li>
-                                <li><a href="javascript:void(0)">Home 8</a></li>
-                                <li><a href="javascript:void(0)">Home 9</a></li>
-                                <li><a href="javascript:void(0)">Home 10</a></li>
-                            </ul>
-                        </li>
-                        <li class="has-dropdown has-dropdown1"><a href="#">Landing Page</a>
-                            <ul class="sub-menu">
-                                <li><a href="single-javascript:void(0)">Home 1</a></li>
-                                <li><a href="single-javascript:void(0)">Home 2</a></li>
-                                <li><a href="single-javascript:void(0)">Home 3</a></li>
-                                <li><a href="single-javascript:void(0)">Home 4 </a></li>
-                                <li><a href="single-javascript:void(0)">Home 5 </a></li>
-                                <li><a href="single-javascript:void(0)">Home 6 </a></li>
-                                <li><a href="single-javascript:void(0)">Home 7 </a></li>
-                                <li><a href="single-javascript:void(0)">Home 8 </a></li>
-                                <li><a href="single-javascript:void(0)">Home 9 </a></li>
-                                <li><a href="single-javascript:void(0)">Home 10 </a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li><a href="javascript:void(0)">Menu Mobile Belum wkwk</a></li>
+                @foreach ($primary_menus as $pm)
+                    @php
+                        // cek jika ada secondary menu
+                        $secondary_menus = \App\Models\DynamicMenu::where('code', 'LIKE', $pm->code . '%')
+                            ->where('level', 2)
+                            ->orderBy('code')
+                            ->get();
 
+                        // cek link atau submenu
+                        if ($secondary_menus->count() <= 0) {
+                            // cek tipe page atau link
+                            if ($pm->page_id == null) {
+                                $pm_link = $pm->link;
+                            } else {
+                                $pm_link = route('page.show', $pm->page->slug);
+                            }
+                        } else {
+                            $pm_link = 'javascript:void(0)';
+                        }
+                    @endphp
+                    <li class="{{ $secondary_menus->count() > 0 ? 'has-dropdown' : '' }}"><a
+                            href="{{ $pm->link }}">{{ $pm->nama }}</a>
+                        @if ($secondary_menus->count() > 0)
+                            <ul class="sub-menu">
+                                @foreach ($secondary_menus as $sm)
+                                    @php
+                                        // cek tertiary menu
+                                        $tertiary_menus = \App\Models\DynamicMenu::where(
+                                            'code',
+                                            'LIKE',
+                                            $sm->code . '%',
+                                        )
+                                            ->where('level', 3)
+                                            ->orderBy('code')
+                                            ->get();
+
+                                        // cek link atau submenu
+                                        if ($tertiary_menus->count() <= 0) {
+                                            // cek tipe page atau link
+                                            if ($sm->page_id == null) {
+                                                $sm_link = $sm->link;
+                                            } else {
+                                                $sm_link = route('page.show', $sm->page->slug);
+                                            }
+                                        } else {
+                                            $sm_link = 'javascript:void(0)';
+                                        }
+                                    @endphp
+                                    <li class="has-dropdown has-dropdown1">
+                                        <a href="{{ $sm_link }}">
+                                            {{ $sm->nama }}
+                                            @if ($tertiary_menus->count() > 0)
+                                                <i class="fa-solid fa-angle-right"></i>
+                                            @endif
+                                        </a>
+                                        @if ($tertiary_menus->count() > 0)
+                                            <ul class="sub-menu">
+                                                @foreach ($tertiary_menus as $tm)
+                                                    @php
+                                                        // cek link atau submenu
+                                                        // cek tipe page atau link
+                                                        if ($tm->page_id == null) {
+                                                            $tm_link = $tm->link;
+                                                        } else {
+                                                            $tm_link = route('page.show', $tm->page->slug);
+                                                        }
+                                                    @endphp
+                                                    <li><a href="{{ $tm_link }}">{{ $tm->nama }}</a>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        @endif
+                                    </li>
+                                @endforeach
+                            </ul>
+                        @endif
+                    </li>
+                @endforeach
             </ul>
 
             <div class="mobile-button">
-                <a class="menu-btn2" href="javascript:void(0)">Akses PMB Online <span><i
+                <a class="menu-btn2" href="https://pmb.radjakinstitute.id/">Akses PMB Online <span><i
                             class="fa-solid fa-arrow-right"></i></span></a>
             </div>
 
@@ -450,9 +399,12 @@
                                 13550 </p>
                         </div>
                         <ul class="social-icon">
-                            <li><a href="https://www.linkedin.com/school/universitas-mh-thamrin/?originalSubdomain=id"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                            <li><a href="https://www.youtube.com/c/UNIVERSITASMHTHAMRINCHANNEL/videos"><i class="fa-brands fa-youtube"></i></a></li>
-                            <li><a href="https://www.instagram.com/universitasmhthamrin/"><i class="fa-brands fa-instagram"></i></a></li>
+                            <li><a href="https://www.linkedin.com/school/universitas-mh-thamrin/?originalSubdomain=id"><i
+                                        class="fa-brands fa-linkedin-in"></i></a></li>
+                            <li><a href="https://www.youtube.com/c/UNIVERSITASMHTHAMRINCHANNEL/videos"><i
+                                        class="fa-brands fa-youtube"></i></a></li>
+                            <li><a href="https://www.instagram.com/universitasmhthamrin/"><i
+                                        class="fa-brands fa-instagram"></i></a></li>
                         </ul>
                     </div>
                 </div>
