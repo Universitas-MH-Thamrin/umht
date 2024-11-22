@@ -155,8 +155,8 @@
                             <img src="{{ asset('techxen') }}/assets/img/work/project-img1.png" alt="">
                         </div>
                         <div class="heading">
-                            <h3><a href="javascript:void(0)">Fasilitas</a></h3>
-                            <a href="javascript:void(0)" class="learn">Selengkapnya <span><i
+                            <h3><a href="{{ route('page.show', 'fasilitas') }}">Fasilitas</a></h3>
+                            <a href="{{ route('page.show', 'fasilitas') }}" class="learn">Selengkapnya <span><i
                                         class="fa-solid fa-arrow-right"></i></span></a>
                         </div>
                     </div>
@@ -166,8 +166,8 @@
                             <img src="{{ asset('techxen') }}/assets/img/work/project-img2.png" alt="">
                         </div>
                         <div class="heading">
-                            <h3><a href="javascript:void(0)">Kehidupan Kampus</a></h3>
-                            <a href="javascript:void(0)" class="learn">Selengkapnya <span><i
+                            <h3><a href="{{ route('page.show', 'kehidupan-kampus') }}">Kehidupan Kampus</a></h3>
+                            <a href="{{ route('page.show', 'kehidupan-kampus') }}" class="learn">Selengkapnya <span><i
                                         class="fa-solid fa-arrow-right"></i></span></a>
                         </div>
                     </div>
@@ -177,8 +177,8 @@
                             <img src="{{ asset('techxen') }}/assets/img/work/project-img3.png" alt="">
                         </div>
                         <div class="heading">
-                            <h3><a href="javascript:void(0)">Kualitas Lulusan</a></h3>
-                            <a href="javascript:void(0)" class="learn">Selengkapnya <span><i
+                            <h3><a href="{{ route('page.show', 'kualitas-lulusan') }}">Kualitas Lulusan</a></h3>
+                            <a href="{{ route('page.show', 'kualitas-lulusan') }}" class="learn">Selengkapnya <span><i
                                         class="fa-solid fa-arrow-right"></i></span></a>
                         </div>
                     </div>
