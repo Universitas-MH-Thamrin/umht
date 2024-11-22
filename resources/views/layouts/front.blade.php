@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="{{ asset('techxen') }}/assets/css/magnific-popup.css">
     <link rel="stylesheet" href="{{ asset('techxen') }}/assets/css/nice-select.css">
     <link rel="stylesheet" href="{{ asset('techxen') }}/assets/css/slick-slider.css">
+    <link rel="stylesheet" href="{{ asset('techxen') }}/assets/css/swiper-bundle.css">
     <link rel="stylesheet" href="{{ asset('techxen') }}/assets/css/owl.carousel.min.css">
     <link rel="stylesheet" href="{{ asset('techxen') }}/assets/css/aos.css">
     <link rel="stylesheet" href="{{ asset('techxen') }}/assets/css/mobile-menu.css">
@@ -486,6 +487,7 @@
     <script src="{{ asset('techxen') }}/assets/js/ScrollTrigger.min.js"></script>
     <script src="{{ asset('techxen') }}/assets/js/Splitetext.js"></script>
     <script src="{{ asset('techxen') }}/assets/js/text-animation.js"></script>
+    <script src="{{ asset('techxen') }}/assets/js/swiper-bundle.js"></script>
     <script src="{{ asset('techxen') }}/assets/js/SmoothScroll.js"></script>
     <script src="{{ asset('techxen') }}/assets/js/jquery.lineProgressbar.js"></script>
     <script src="{{ asset('techxen') }}/assets/js/ripple-btn.js"></script>

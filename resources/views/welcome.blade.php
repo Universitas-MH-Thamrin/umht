@@ -3,8 +3,8 @@
 @section('content')
     <!--=====HERO AREA START=======-->
 
-    <div class="hero1"
-        style="background-image: url(assets/img/bg/hero1-bg.png); background-position: center; background-repeat: no-repeat; background-size: cover;">
+    {{-- <div class="hero1"
+        style="background-image: url({{ asset('techxen') }}/assets/img/bg/hero1-bg.png); background-position: center; background-repeat: no-repeat; background-size: cover;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
@@ -26,40 +26,70 @@
                 </div>
 
                 <div class="col-lg-6">
-                    <div class="hero1-all-images">
-                        <div class="image1 ">
-                            {{-- <img src="{{ asset('techxen') }}/assets/img/hero/hero1-image1.png" alt=""> --}}
-                            <img src="{{ asset('img/thamrin.png') }}" alt="">
-                        </div>
-                        <div class="image2 reveal">
-                            <img src="{{ asset('techxen') }}/assets/img/hero/hero1-image2.png" alt="">
-                        </div>
-                        <div class="image3 shape-animaiton3">
-                            {{-- <img src="{{ asset('techxen') }}/assets/img/hero/hero1-image3.png" alt=""> --}}
-                        </div>
-                        <div class="image4 shape-animaiton3">
-                            {{-- <img src="{{ asset('techxen') }}/assets/img/hero/hero1-image4.png" alt=""> --}}
-                        </div>
-                        <div class="shape1">
-                            <img src="{{ asset('techxen') }}/assets/img/shapes/header1-shape1.png" alt="">
-                        </div>
-                        <div class="shape2">
-                            <img src="{{ asset('techxen') }}/assets/img/shapes/header1-shape2.png" alt="">
-                        </div>
-                    </div>
+                    <img src="{{ url(Storage::url($sliders->image)) }}" alt="" style="width: 100%;">
                 </div>
 
+            </div>
+        </div>
+    </div> --}}
+
+    <!--=====HERO AREA START=======-->
+
+    <div class="tp-slider-area">
+        <div class="tp-slider-wrapper p-relative">
+            <div class="tp-slider-arrow-box">
+                <button class="slider-prev" style="background-color: #1A37AA; color:white;"><i class="fa-solid fa-angle-right"></i></button>
+                <button class="slider-next" style="background-color: #1A37AA; color:white;"><i class="fa-solid fa-angle-left"></i></button>
+            </div>
+            <div class="swiper-container tp-slider-active">
+                <div class="swiper-wrapper">
+                    @foreach ($sliders as $item)
+                        <div class="swiper-slide">
+                            <div class="tp-slider-bg d-flex justify-content-center align-items-center p-relative fix">
+                                <div class="tp-slider-img" style="background-image: url({{ $item->image ? url(Storage::url($item->image)) : asset('techxen/assets/img/bg/hero6-bg1.png') }});"></div>
+                                <div class="tp-slider-shape-1 z-index-1">
+                                    <img src="{{ asset('techxen') }}/assets/img/shapes/hero6-shape.png" alt="">
+                                </div>
+                                <div class="container _relative">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="tp-slider-content-wrap p-relative z-index-2">
+                                                <div class="tp-slider-title-box p-relative">
+                                                    <span class="span">Website Resmi {{ env('APP_NAME') }}</span>
+                                                    <h1 class="tg-element-title">{{ $item->title }}</h1>
+                                                    <div class="space16"></div>
+                                                    <p>{{ $item->subtitle }}</p>
+                                                </div>
+                                                <div class="space30"></div>
+                                                <div class="tp-slider-video-box d-flex align-items-center">
+                                                    <div class="tp-slider-btn">
+                                                        <a class="theme-btn1" href="{{ $item->btn_link }}">{{ $item->btn_text }} <span
+                                                                class="arrow1"><i
+                                                                    class="fa-solid fa-arrow-right"></i></span><span
+                                                                class="arrow2"></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
             </div>
         </div>
     </div>
 
     <!--=====HERO AREA END=======-->
 
+    <!--=====HERO AREA END=======-->
+
     <!--=====HERO BOTTOM AREA START=======-->
 
-    <div class="">
+    <div class="mt-5">
         <div class="container">
-            <div class="row hero-bottom-area">
+            <div class="row hero-bottom-area mt-1" style="z-index: 999999 !important;">
                 <div class="col-lg-3">
                     <div class="single-box">
                         <div class="icon">
@@ -218,7 +248,8 @@
     <div class="cta4">
         <a href="{{ $cta ? $cta->link : 'javascript:void(0)' }}" target="_blank">
             <div class="container">
-                <img src="{{ $cta ? url(Storage::url($cta->image)) : asset('img/cta.jpg') }}" alt="" style="width: 100%;">
+                <img src="{{ $cta ? url(Storage::url($cta->image)) : asset('img/cta.jpg') }}" alt=""
+                    style="width: 100%;">
             </div>
         </a>
     </div>
@@ -293,7 +324,8 @@
                         <div class="service-box" data-aos="fade-up" data-aos-duration="700">
                             <div class="">
                                 <div class="icon">
-                                    <img src="{{ $item->icon ? url(Storage::url($item->icon)) : asset('techxen/assets/img/icons/about-solution-iocn2.png') }}" alt="">
+                                    <img src="{{ $item->icon ? url(Storage::url($item->icon)) : asset('techxen/assets/img/icons/about-solution-iocn2.png') }}"
+                                        alt="">
                                 </div>
                             </div>
                             <div class="heading6">
