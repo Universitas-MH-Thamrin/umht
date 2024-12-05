@@ -61,6 +61,9 @@ Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.', 'middleware' => 'au
     Route::post('video_dropzone/{folder_id}/upload/store',[App\Http\Controllers\VideoController::class, 'fileStore'])->name('video.fileStore');
     Route::post('video_dropzone/delete',[App\Http\Controllers\VideoController::class, 'fileDestroy'])->name('video.fileDestroy');
     Route::post('video_dropzone/deleteReload',[App\Http\Controllers\VideoController::class, 'fileDestroyReload'])->name('video.fileDestroyReload');
+
+    // CkEditor Berita
+    Route::post('helper/ckeditor_upload',[App\Http\Controllers\BeritaController::class, 'ckeditor_upload'])->name('helper.ckeditor_upload');
 });
 
 require __DIR__.'/auth.php';

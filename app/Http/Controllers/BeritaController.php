@@ -121,4 +121,24 @@ class BeritaController extends Controller
 
         return redirect()->back()->with('success', 'Berhasil menghapus berita.');
     }
+
+    public function ckeditor_upload(Request $request){
+        if ($request->hasFile('upload')) {
+            $originName = $request->file('upload')->getClientOriginalName();
+            $fileName = pathinfo($originName, PATHINFO_FILENAME);
+            $extension = $request->file('upload')->getClientOriginalExtension();
+
+            $request->validate([
+                'upload' => ['nullable', 'file', 'mimes:jpg,jpeg,png,bmp,pdf,webp', 'between:0,2048'],
+            ]);
+
+            $fileName = $fileName . '_' . time() . '.' . $extension;
+
+            $request->file('upload')->move(public_path('media'), $fileName);
+
+            $url = asset('media/' . $fileName);
+            return response()->json(['fileName' => $fileName, 'uploaded'=> 1, 'url' => $url]);
+
+        }
+    }
 }
