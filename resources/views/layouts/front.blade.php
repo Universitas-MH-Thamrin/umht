@@ -377,7 +377,7 @@
 
     @yield('content')
 
-    <a href="https://api.whatsapp.com/send?phone=6281807278475&text=Halo,%20saya%20dari%20Website%20Thamrin%20ingin%20menghubungi%20anda"
+    <a href="https://api.whatsapp.com/send?phone=62811131337&text=Halo,%20saya%20dari%20Website%20Thamrin%20ingin%20menghubungi%20anda"
         class="float" target="_blank">
         <i class="fa-brands fa-whatsapp my-float"></i>
     </a>
