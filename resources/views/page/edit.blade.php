@@ -53,7 +53,14 @@
     <script>
         var ckClassicEditor = document.querySelectorAll(".ckeditor-classic"),
             snowEditor = (ckClassicEditor && Array.from(ckClassicEditor).forEach(function() {
-                ClassicEditor.create(document.querySelector(".ckeditor-classic")).then(function(e) {
+                ClassicEditor.create(document.querySelector(".ckeditor-classic"), {
+                    ckfinder: {
+                        uploadUrl: '{{ route("dashboard.helper.ckeditor_upload") }}?_token=' + document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                        headers: {
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                        }
+                    }
+                }).then(function(e) {
                     e.ui.view.editable.element.style.height = "200px"
                 }).catch(function(e) {
                     console.error(e)
