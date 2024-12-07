@@ -42,6 +42,20 @@ return [
             'visibility' => 'public',
         ],
 
+        'hosting' => [
+            'driver' => 'local',
+            'root' => public_path() . '/../../public_html/'. env('FOLDER_IN_PUBLIC_HTML') .'/storage',
+            'url' => env('APP_URL').'/'. env('FOLDER_IN_PUBLIC_HTML') .'/storage',
+            'visibility' => 'public',
+        ],
+
+        'hosting_root' => [
+            'driver' => 'local',
+            'root' => public_path() . '/../../public_html/storage',
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
