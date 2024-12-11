@@ -202,7 +202,11 @@
                             <img src="{{ asset('techxen') }}/assets/img/about/about1-img1.png" alt="">
                         </div>
                         <div class="image2 reveal image-anime">
-                            <img src="{{ asset('techxen') }}/assets/img/about/about1-img2.png" alt="">
+                            @if ($hero_banner)
+                                <img src="{{ url(Storage::url($hero_banner->image)) }}" alt="">
+                            @else
+                                <img src="{{ asset('techxen') }}/assets/img/about/about1-img2.png" alt="">
+                            @endif
                         </div>
                         <div class="icon-box">
                             <img src="{{ asset('img/fav.png') }}" alt="" style="width: 20px;">
@@ -214,15 +218,23 @@
 
                 <div class="col-lg-6" style="margin-top: 100px;">
                     <div class="heading1">
-                        <span class="span" data-aos="zoom-in-left" data-aos-duration="700"><img
-                                src="{{ asset('techxen') }}/assets/img/icons/span1.png" alt="">Selamat Datang di
-                            Universitas MH Thamrin</span>
-                        <h2 class="title tg-element-title">Masa Depan Dimulai di Sini!</h2>
-                        <div class="space16"></div>
-                        <p data-aos="fade-left" data-aos-duration="800">Universitas MH Thamrin hadir untuk mencetak
-                            lulusan unggul yang siap bersaing di dunia kerja global. Dengan pengalaman lebih dari [X tahun],
-                            kami menawarkan program pendidikan berkualitas, kurikulum relevan dengan industri, dan dukungan
-                            pengembangan karier yang komprehensif.</p>
+                        @if ($hero_banner)
+                            <span class="span" data-aos="zoom-in-left" data-aos-duration="700"><img
+                                    src="{{ asset('techxen') }}/assets/img/icons/span1.png" alt="">{{ $hero_banner->subtitle }}</span>
+                            <h2 class="title tg-element-title">{{ $hero_banner->title }}</h2>
+                            <div class="space16"></div>
+                            <p data-aos="fade-left" data-aos-duration="800">{!! $hero_banner->desc !!}</p>
+                        @else
+                            <span class="span" data-aos="zoom-in-left" data-aos-duration="700"><img
+                                    src="{{ asset('techxen') }}/assets/img/icons/span1.png" alt="">Selamat Datang di
+                                Universitas MH Thamrin</span>
+                            <h2 class="title tg-element-title">Masa Depan Dimulai di Sini!</h2>
+                            <div class="space16"></div>
+                            <p data-aos="fade-left" data-aos-duration="800">Universitas MH Thamrin hadir untuk mencetak
+                                lulusan unggul yang siap bersaing di dunia kerja global. Dengan pengalaman lebih dari [X tahun],
+                                kami menawarkan program pendidikan berkualitas, kurikulum relevan dengan industri, dan dukungan
+                                pengembangan karier yang komprehensif.</p>
+                        @endif
 
                         <ul class="list" data-aos="fade-left" data-aos-duration="1100">
                             <li><span><i class="fa-solid fa-check"></i></span> Program Sarjana dan Pascasarjana</li>
@@ -232,7 +244,7 @@
                         </ul>
                         <div class="space30"></div>
                         <div class="" data-aos="fade-left" data-aos-duration="900">
-                            <a class="theme-btn1" href="#">Pelajari Lebih Lanjut <span><i
+                            <a class="theme-btn1" href="{{ ($hero_banner != null ?  $hero_banner->link : '#') }}">Pelajari Lebih Lanjut <span><i
                                         class="fa-solid fa-arrow-right"></i></span></a>
                         </div>
                     </div>

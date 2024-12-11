@@ -7,6 +7,7 @@ use App\Models\Cta;
 use App\Models\Faq;
 use App\Models\Folder;
 use App\Models\Galeri;
+use App\Models\HeroBanner;
 use App\Models\Kontak;
 use App\Models\Layanan;
 use App\Models\LinkTerkait;
@@ -23,12 +24,14 @@ class FrontPageController extends Controller
         $beritas = Berita::where('visible', 1)->orderBy('id', 'DESC')->take(3)->get();
         $layanans = Layanan::where('visible', 1)->orderBy('urutan', 'ASC')->get();
         $cta = Cta::where('visible', 1)->first();
+        $hero_banner = HeroBanner::where('visible', 1)->first();
         $data = [
             'title' => env('APP_NAME'),
             'sliders' => $sliders,
             'beritas' => $beritas,
             'layanans' => $layanans,
             'cta' => $cta,
+            'hero_banner' => $hero_banner,
         ];
         return view('welcome', $data);
     }
