@@ -240,11 +240,11 @@
                                     </div>
                                     <div class="headding">
                                         <p>PMB 2024</p>
-                                        <a href="https://pmb.radjakinstitute.id/">Daftar Sekarang!</a>
+                                        <a href="https://register.thamrin.ac.id/">Daftar Sekarang!</a>
                                     </div>
                                 </div>
                                 <div class="button">
-                                    <a class="theme-btn1" href="https://pmb.radjakinstitute.id/">PMB Thamrin <span><i
+                                    <a class="theme-btn1" href="https://register.thamrin.ac.id/">PMB Thamrin <span><i
                                                 class="fa-solid fa-arrow-right"></i></span></a>
                                 </div>
                             </div>
@@ -377,7 +377,7 @@
 
     @yield('content')
 
-    <a href="https://api.whatsapp.com/send?phone=62811131337&text=Halo,%20saya%20dari%20Website%20Thamrin%20ingin%20menghubungi%20anda"
+    <a href="https://api.whatsapp.com/send?phone=6281110105708&text=Halo,%20saya%20dari%20Website%20Thamrin%20ingin%20menghubungi%20anda"
         class="float" target="_blank">
         <i class="fa-brands fa-whatsapp my-float"></i>
     </a>
