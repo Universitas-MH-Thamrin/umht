@@ -12,7 +12,7 @@ class CarouselController extends Controller
 {
     public function index(CarouselDataTable $dataTable)
     {
-        return $dataTable->render('Carousel.index', [
+        return $dataTable->render('carousel.index', [
             'title' => 'List Carousel',
             'datatable' => true
         ]);
@@ -23,7 +23,7 @@ class CarouselController extends Controller
         $data = [
             'title' => 'Tambah Carousel',
         ];
-        return view('Carousel.create', $data);
+        return view('carousel.create', $data);
     }
 
     public function store(Request $request)
@@ -58,7 +58,7 @@ class CarouselController extends Controller
     public function edit($id)
     {
         $carousel = Carousel::findOrFail($id);
-        return view('Carousel.edit', [
+        return view('carousel.edit', [
             'data' => $carousel,
             'title' => 'Edit Carousel',
         ]);
@@ -97,7 +97,7 @@ class CarouselController extends Controller
             return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
 
-        return redirect()->back()->with('success', 'Berhasil mengubah data Carousel.');
+        return redirect()->back()->with('success', 'Berhasil mengubah data carousel.');
     }
 
     public function destroy($id)
@@ -109,6 +109,6 @@ class CarouselController extends Controller
             return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
 
-        return redirect()->back()->with('success', 'Berhasil menghapus Carousel.');
+        return redirect()->back()->with('success', 'Berhasil menghapus carousel.');
     }
 }
