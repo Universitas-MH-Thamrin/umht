@@ -38,15 +38,19 @@
     <div class="tp-slider-area">
         <div class="tp-slider-wrapper p-relative">
             <div class="tp-slider-arrow-box">
-                <button class="slider-prev" style="background-color: #1A37AA; color:white;"><i class="fa-solid fa-angle-right"></i></button>
-                <button class="slider-next" style="background-color: #1A37AA; color:white;"><i class="fa-solid fa-angle-left"></i></button>
+                <button class="slider-prev" style="background-color: #1A37AA; color:white;"><i
+                        class="fa-solid fa-angle-right"></i></button>
+                <button class="slider-next" style="background-color: #1A37AA; color:white;"><i
+                        class="fa-solid fa-angle-left"></i></button>
             </div>
             <div class="swiper-container tp-slider-active">
                 <div class="swiper-wrapper">
                     @foreach ($sliders as $item)
                         <div class="swiper-slide">
                             <div class="tp-slider-bg d-flex justify-content-center align-items-center p-relative fix">
-                                <div class="tp-slider-img" style="background-image: url({{ $item->image ? url(Storage::url($item->image)) : asset('techxen/assets/img/bg/hero6-bg1.png') }});"></div>
+                                <div class="tp-slider-img"
+                                    style="background-image: url({{ $item->image ? url(Storage::url($item->image)) : asset('techxen/assets/img/bg/hero6-bg1.png') }});">
+                                </div>
                                 <div class="tp-slider-shape-1 z-index-1">
                                     <img src="{{ asset('techxen') }}/assets/img/shapes/hero6-shape.png" alt="">
                                 </div>
@@ -63,7 +67,8 @@
                                                 <div class="space30"></div>
                                                 <div class="tp-slider-video-box d-flex align-items-center">
                                                     <div class="tp-slider-btn">
-                                                        <a class="theme-btn1" href="{{ $item->btn_link }}">{{ $item->btn_text }} <span
+                                                        <a class="theme-btn1"
+                                                            href="{{ $item->btn_link }}">{{ $item->btn_text }} <span
                                                                 class="arrow1"><i
                                                                     class="fa-solid fa-arrow-right"></i></span><span
                                                                 class="arrow2"></a>
@@ -150,41 +155,19 @@
         <div class="container">
             <div class="row">
                 <div class="project-slider owl-carousel" data-aos="fade-up" data-aos-duration="800">
-                    <div class="single-slider">
-                        <div class="slider-img">
-                            <img src="{{ asset('techxen') }}/assets/img/work/project-img1.png" alt="">
+                    @foreach ($carousels as $item)
+                        <div class="single-slider">
+                            <div class="slider-img">
+                                <img src="{{ $item->image ? url(Storage::url($item->image)) : asset('techxen/assets/img/bg/hero6-bg1.png') }}" alt="" style="height: 450px;object-fit: cover;width:100%;">
+                            </div>
+                            <div class="heading">
+                                <h3><a href="{{ $item->btn_link }}">{{ $item->title }}</a></h3>
+                                <a href="{{ $item->btn_link }}" class="learn">Selengkapnya <span><i
+                                            class="fa-solid fa-arrow-right"></i></span></a>
+                            </div>
                         </div>
-                        <div class="heading">
-                            <h3><a href="{{ route('page.show', 'fasilitas') }}">Fasilitas</a></h3>
-                            <a href="{{ route('page.show', 'fasilitas') }}" class="learn">Selengkapnya <span><i
-                                        class="fa-solid fa-arrow-right"></i></span></a>
-                        </div>
-                    </div>
-
-                    <div class="single-slider">
-                        <div class="slider-img">
-                            <img src="{{ asset('techxen') }}/assets/img/work/project-img2.png" alt="">
-                        </div>
-                        <div class="heading">
-                            <h3><a href="{{ route('page.show', 'kehidupan-kampus') }}">Kehidupan Kampus</a></h3>
-                            <a href="{{ route('page.show', 'kehidupan-kampus') }}" class="learn">Selengkapnya <span><i
-                                        class="fa-solid fa-arrow-right"></i></span></a>
-                        </div>
-                    </div>
-
-                    <div class="single-slider">
-                        <div class="slider-img">
-                            <img src="{{ asset('techxen') }}/assets/img/work/project-img3.png" alt="">
-                        </div>
-                        <div class="heading">
-                            <h3><a href="{{ route('page.show', 'kualitas-lulusan') }}">Kualitas Lulusan</a></h3>
-                            <a href="{{ route('page.show', 'kualitas-lulusan') }}" class="learn">Selengkapnya <span><i
-                                        class="fa-solid fa-arrow-right"></i></span></a>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
-
-
             </div>
         </div>
     </div>
@@ -220,19 +203,23 @@
                     <div class="heading1">
                         @if ($hero_banner)
                             <span class="span" data-aos="zoom-in-left" data-aos-duration="700"><img
-                                    src="{{ asset('techxen') }}/assets/img/icons/span1.png" alt="">{{ $hero_banner->subtitle }}</span>
+                                    src="{{ asset('techxen') }}/assets/img/icons/span1.png"
+                                    alt="">{{ $hero_banner->subtitle }}</span>
                             <h2 class="title tg-element-title">{{ $hero_banner->title }}</h2>
                             <div class="space16"></div>
                             <p data-aos="fade-left" data-aos-duration="800">{!! $hero_banner->desc !!}</p>
                         @else
                             <span class="span" data-aos="zoom-in-left" data-aos-duration="700"><img
-                                    src="{{ asset('techxen') }}/assets/img/icons/span1.png" alt="">Selamat Datang di
+                                    src="{{ asset('techxen') }}/assets/img/icons/span1.png" alt="">Selamat Datang
+                                di
                                 Universitas MH Thamrin</span>
                             <h2 class="title tg-element-title">Masa Depan Dimulai di Sini!</h2>
                             <div class="space16"></div>
                             <p data-aos="fade-left" data-aos-duration="800">Universitas MH Thamrin hadir untuk mencetak
-                                lulusan unggul yang siap bersaing di dunia kerja global. Dengan pengalaman lebih dari [X tahun],
-                                kami menawarkan program pendidikan berkualitas, kurikulum relevan dengan industri, dan dukungan
+                                lulusan unggul yang siap bersaing di dunia kerja global. Dengan pengalaman lebih dari [X
+                                tahun],
+                                kami menawarkan program pendidikan berkualitas, kurikulum relevan dengan industri, dan
+                                dukungan
                                 pengembangan karier yang komprehensif.</p>
                         @endif
 
@@ -244,8 +231,9 @@
                         </ul>
                         <div class="space30"></div>
                         <div class="" data-aos="fade-left" data-aos-duration="900">
-                            <a class="theme-btn1" href="{{ ($hero_banner != null ?  $hero_banner->link : '#') }}">Pelajari Lebih Lanjut <span><i
-                                        class="fa-solid fa-arrow-right"></i></span></a>
+                            <a class="theme-btn1"
+                                href="{{ $hero_banner != null ? $hero_banner->link : '#' }}">Pelajari Lebih Lanjut
+                                <span><i class="fa-solid fa-arrow-right"></i></span></a>
                         </div>
                     </div>
                 </div>

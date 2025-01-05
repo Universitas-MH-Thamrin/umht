@@ -216,10 +216,9 @@
                                     <span key="t-dashboards">Setting Website</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="{{ route('dashboard.slider.index') }}"
-                                            key="t-tui-paud">Slider/Banner</a></li>
-                                    <li><a href="{{ route('dashboard.link_terkait.index') }}" key="t-tui-paud">Link
-                                            Terkait</a></li>
+                                    <li><a href="{{ route('dashboard.slider.index') }}" key="t-tui-paud">Slider/Banner</a></li>
+                                    <li><a href="{{ route('dashboard.carousel.index') }}" key="t-tui-paud">Carousel</a></li>
+                                    <li><a href="{{ route('dashboard.link_terkait.index') }}" key="t-tui-paud">Link Terkait</a></li>
                                     <li><a href="{{ route('dashboard.page.index') }}" key="t-tui-paud">Halaman</a></li>
                                     <li><a href="{{ route('dashboard.dynamic_menu.index') }}" key="t-tui-paud">Menu</a></li>
                                     <li><a href="{{ route('dashboard.layanan.index') }}" key="t-tui-paud">Layanan Digital</a></li>

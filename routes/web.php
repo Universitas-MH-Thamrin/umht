@@ -37,6 +37,7 @@ Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.', 'middleware' => 'au
     // Website Modules
     Route::resource('user', \App\Http\Controllers\UserController::class)->except('show');
     Route::resource('slider', \App\Http\Controllers\SliderController::class)->except('show');
+    Route::resource('carousel', \App\Http\Controllers\CarouselController::class)->except('show');
     Route::resource('layanan', \App\Http\Controllers\LayananController::class)->except('show');
     Route::put('cta/set_active/{id}', [\App\Http\Controllers\CtaController::class, 'set_active'])->name('cta.set_active');
     Route::resource('cta', \App\Http\Controllers\CtaController::class)->except('show');
