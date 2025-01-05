@@ -56,8 +56,11 @@ class FrontPageController extends Controller
         $berita = Berita::where('slug', $slug)->first();
         $link_terkaits = LinkTerkait::where('visible', 1)->orderBy('id', 'DESC')->get();
         $berita->save();
+
+        $beritas = Berita::where('visible', 1)->orderBy('id', 'DESC')->take(5)->get();
         $data = [
             'title' => $berita->judul,
+            'beritas' => $beritas,
             'data' => $berita,
             'link_terkaits' => $link_terkaits,
         ];
