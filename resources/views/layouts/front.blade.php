@@ -240,11 +240,11 @@
                                     </div>
                                     <div class="headding">
                                         <p>PMB 2024</p>
-                                        <a href="https://register.thamrin.ac.id/">Daftar Sekarang!</a>
+                                        <a href="https://pmb.thamrin.ac.id/login">Daftar Sekarang!</a>
                                     </div>
                                 </div>
                                 <div class="button">
-                                    <a class="theme-btn1" href="https://register.thamrin.ac.id/">PMB Thamrin <span><i
+                                    <a class="theme-btn1" href="https://pmb.thamrin.ac.id/login">PMB Thamrin <span><i
                                                 class="fa-solid fa-arrow-right"></i></span></a>
                                 </div>
                             </div>
