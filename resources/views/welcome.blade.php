@@ -182,7 +182,7 @@
                 <div class="col-lg-6">
                     <div class="about-image">
                         <div class="image1 reveal">
-                            <img src="{{ asset('techxen') }}/assets/img/about/about1-img1.png" alt="">
+                            {{-- <img src="{{ asset('techxen') }}/assets/img/about/about1-img1.png" alt=""> --}}
                         </div>
                         <div class="image2 reveal image-anime">
                             @if ($hero_banner)
