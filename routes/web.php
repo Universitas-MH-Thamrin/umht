@@ -27,6 +27,7 @@ Route::get('/foto', [\App\Http\Controllers\FrontPageController::class, 'foto'])-
 Route::get('foto_folder/{folder_id}', [\App\Http\Controllers\FrontPageController::class, 'foto_folder'])->name('front.foto_folder');
 Route::get('/video', [\App\Http\Controllers\FrontPageController::class, 'video'])->name('front.video');
 Route::get('video_folder/{folder_id}', [\App\Http\Controllers\FrontPageController::class, 'video_folder'])->name('front.video_folder');
+Route::get('/akreditasi', [\App\Http\Controllers\AccreditationController::class, 'getAll'])->name('akreditasi.getAll');
 
 Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.', 'middleware' => 'auth'], function() {
     Route::get('/', [\App\Http\Controllers\DashboardController::class, 'index'])->name('index');
@@ -54,6 +55,7 @@ Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.', 'middleware' => 'au
     Route::resource('bank_data', \App\Http\Controllers\BankDataController::class)->except('show');
     Route::resource('page', \App\Http\Controllers\PageController::class)->except('show');
     Route::resource('dynamic_menu', \App\Http\Controllers\DynamicMenuController::class)->except('show');
+    Route::resource('akreditasi', App\Http\Controllers\AccreditationController::class)->except('show');
 
     Route::get('galeri_dropzone/{folder_id}/upload',[App\Http\Controllers\GaleriController::class, 'fileStoreDropzone'])->name('galeri.fileDropzone');
     Route::post('galeri_dropzone/{folder_id}/upload/store',[App\Http\Controllers\GaleriController::class, 'fileStore'])->name('galeri.fileStore');
