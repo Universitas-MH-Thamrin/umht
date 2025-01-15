@@ -12,7 +12,7 @@ class Accreditation extends Model
 
     public function getFormattedDateAttribute()
     {
-        return Carbon::parse($this->created_at)->translatedFormat('d F Y');
+        return Carbon::parse($this->expirated)->translatedFormat('d F Y');
     }
 
     protected $fillable = [
