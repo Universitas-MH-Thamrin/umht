@@ -72,9 +72,7 @@
                     </table>
                   </div>
                   <!-- Pagination -->
-                  <div class="mt-4 bg-black h-[20vh]">
-                    {{ $accreditations->withQueryString()->links() }}
-                  </div>
+                  {{ $accreditations->withQueryString()->links() }}
                 </div>
               </div>
             </article>
