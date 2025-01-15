@@ -179,7 +179,7 @@ class AccreditationController extends Controller
             ->when($search, function ($query, $search) {
                 return $query->where('name', 'like', '%' . $search . '%');
             })
-            ->orderByDesc('created_at')
+            ->orderBy('name')
             ->paginate(10);
 
         return view('akreditasi', [
