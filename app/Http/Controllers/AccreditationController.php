@@ -16,9 +16,18 @@ class AccreditationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(): View
+    public function index(Request $request): View
     {
-        $accreditations = Accreditation::query()->orderBy('created_at')->paginate(10)->withQueryString();
+        // Search by name
+        $search = $request->input('search');
+
+        $accreditations = Accreditation::query()
+            ->when($search, function ($query, $search) {
+                return $query->where('name', 'like', '%' . $search . '%');
+            })
+            ->orderBy('name')
+            ->paginate(10)
+            ->withQueryString();
 
         return view('accreditation.index', [
             'accreditations' => $accreditations,
@@ -57,10 +66,12 @@ class AccreditationController extends Controller
 
             if ($request->hasFile('document')) {
                 $file = $request->file('document');
-                // Format nama file berdasarkan input `name`
-                $formattedName = Str::slug($request->name) . '.' . $file->getClientOriginalExtension();
+                // Format nama file berdasarkan input `name` dan tanggal input
+                $timestamp = now()->timestamp;
+                $formattedName = Str::slug($request->name) . "-{$timestamp}." . $file->getClientOriginalExtension();
+
                 // Simpan file ke dalam folder `akreditasi` di disk `public`
-                $data['document'] = $file->storeAs('public/akreditasi', $formattedName, 'public');
+                $data['document'] = $file->storeAs('akreditasi', $formattedName, 'public');
             } else {
                 $data['document'] = null;
             }
@@ -112,18 +123,30 @@ class AccreditationController extends Controller
             // Cek apakah ada file baru yang diunggah
             if ($request->hasFile('document')) {
                 $file = $request->file('document');
-                // Format nama file berdasarkan input `name`
-                $formattedName = Str::slug($request->name) . '.' . $file->getClientOriginalExtension();
-                // Simpan file baru ke dalam folder `akreditasi` di disk `public`
-                $data['document'] = $file->storeAs('public/akreditasi', $formattedName, 'public');
+                $timestamp = now()->timestamp;
+                $formattedName = Str::slug($request->name) . "-{$timestamp}." . $file->getClientOriginalExtension();
+                $data['document'] = $file->storeAs('akreditasi', $formattedName, 'public');
 
                 // Hapus file lama jika ada
                 if ($akreditasi->document && \Storage::disk('public')->exists($akreditasi->document)) {
                     \Storage::disk('public')->delete($akreditasi->document);
                 }
             } else {
-                // Pertahankan file lama jika tidak ada file baru
-                $data['document'] = $akreditasi->document;
+                // Jika tidak ada file baru, tetapi nama berubah, ubah nama file lama
+                if ($akreditasi->document) {
+                    $oldFilePath = $akreditasi->document;
+                    $oldFileExtension = pathinfo($oldFilePath, PATHINFO_EXTENSION);
+                    $timestamp = now()->timestamp;
+                    $newFileName = Str::slug($request->name) . "-{$timestamp}." . $oldFileExtension;
+                    $newFilePath = 'akreditasi/' . $newFileName;
+
+                    if (\Storage::disk('public')->exists($oldFilePath)) {
+                        \Storage::disk('public')->move($oldFilePath, $newFilePath);
+                        $data['document'] = $newFilePath;
+                    } else {
+                        $data['document'] = $akreditasi->document; // Pertahankan file lama jika tidak ditemukan
+                    }
+                }
             }
 
             // Update data
@@ -146,7 +169,7 @@ class AccreditationController extends Controller
      * @param  \App\Models\Accreditation  $accreditation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Accreditation $akreditasi):RedirectResponse
+    public function destroy(Accreditation $akreditasi): RedirectResponse
     {
         DB::beginTransaction();
 
@@ -179,7 +202,7 @@ class AccreditationController extends Controller
             ->when($search, function ($query, $search) {
                 return $query->where('name', 'like', '%' . $search . '%');
             })
-            ->orderBy('name')
+            ->orderByDesc('name')
             ->paginate(10);
 
         return view('akreditasi', [
