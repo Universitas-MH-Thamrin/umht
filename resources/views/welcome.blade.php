@@ -94,7 +94,7 @@
 
     <div class="mt-5">
         <div class="container">
-            <div class="row hero-bottom-area mt-1" style="z-index: 999999 !important;">
+            <div class="mt-1 row hero-bottom-area" style="z-index: 999999 !important;">
                 <div class="col-lg-3">
                     <div class="single-box">
                         <div class="icon">
@@ -182,13 +182,13 @@
                 <div class="col-lg-6">
                     <div class="about-image">
                         <div class="image1 reveal">
-                            <img src="{{ asset('techxen') }}/assets/img/about/about1-img1.png" alt="">
+                            {{-- <img src="{{ asset('techxen') }}/assets/img/about/about1-img1.png" alt=""> --}}
                         </div>
                         <div class="image2 reveal image-anime">
                             @if ($hero_banner)
                                 <img src="{{ url(Storage::url($hero_banner->image)) }}" alt="">
                             @else
-                                <img src="{{ asset('techxen') }}/assets/img/about/about1-img2.png" alt="">
+                                <img src="{{ asset('techxen') }}/assets/img/about/thamrin-img.jpg" alt="">
                             @endif
                         </div>
                         <div class="icon-box">
@@ -261,7 +261,7 @@
     <div class="blog sp">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 m-auto text-center">
+                <div class="m-auto text-center col-lg-8">
                     <div class="heading1">
                         <span class="span" data-aos="zoom-in-left" data-aos-duration="700"><img
                                 src="{{ asset('img/fav.png') }}" alt="" style="width: 20px;"> Informasi &
@@ -309,7 +309,7 @@
     <div class="service6 sp bg5" id="service">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 m-auto text-center">
+                <div class="m-auto text-center col-lg-6">
                     <div class="heading1">
                         <span class="span" data-aos="zoom-in-left" data-aos-duration="700">Layanan</span>
                         <h2 class="tg-element-title">Akses Layanan Digital <br><span>UMHT</span></h2>
