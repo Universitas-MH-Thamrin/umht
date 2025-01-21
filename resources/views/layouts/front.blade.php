@@ -401,7 +401,7 @@
                     <div class="buttons">
                         <a class="cta-btn1" href="https://api.whatsapp.com/send?phone=62811131337&text=Halo,%20saya%20dari%20Website%20Thamrin%20ingin%20menghubungi%20anda">Mau Konsultasi Dulu <span><i
                                     class="fa-solid fa-arrow-right"></i></span></a>
-                        <a class="cta-btn2" href="https://pmb.radjakinstitute.id/">Langsung Akses PMB<span><i
+                        <a class="cta-btn2" href="https://pmb.thamrin.ac.id/login">Langsung Akses PMB<span><i
                                     class="fa-solid fa-arrow-right"></i></span></a>
                     </div>
                 </div>

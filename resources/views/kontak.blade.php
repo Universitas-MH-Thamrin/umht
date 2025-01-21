@@ -37,8 +37,7 @@
                             </div>
                             <div class="heading">
                                 <h5>Contact Us</h5>
-                                <a href="#" class="text">021-8096411</a> dan
-                                <a href="#" class="text">0811-131-337</a>
+                                <a href="wa.me/6281110105708" class="text">6281110105708</a>
                             </div>
                         </div>
 
