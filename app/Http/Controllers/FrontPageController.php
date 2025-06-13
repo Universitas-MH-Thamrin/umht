@@ -83,12 +83,14 @@ class FrontPageController extends Controller
     {
         if (request()->method() == 'POST') {
             $this->validate($request, [
-                'name' => 'required'
+                'name' => 'required',
+                'phone' => 'max:18',
             ]);
 
             $kontak = new Kontak();
             $kontak->name = $request->name;
             $kontak->email = $request->email;
+            $kontak->phone = $request->phone;
             $kontak->subject = $request->subject;
             $kontak->message = $request->message;
             $kontak->save();

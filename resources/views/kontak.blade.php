@@ -86,6 +86,12 @@
 
                                 <div class="col-lg-12">
                                     <div class="single-input">
+                                        <input type="phone" placeholder="Phone" name="phone">
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="single-input">
                                         <input type="text" placeholder="Subject" name="subject">
                                     </div>
                                 </div>

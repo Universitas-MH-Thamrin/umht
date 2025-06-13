@@ -29,6 +29,9 @@ class KontakDataTable extends DataTable
             ->editColumn('visible', function($data) {
                 return $data->visible ? '<span class="badge bg-success">Ya</span>' : '<span class="badge bg-danger">Tidak</span>';
             })
+            ->editColumn('phone', function ($data) {
+                return $data->phone ?: '-';
+            })
             ->addColumn('action', function($data) {
                 return "
                     <div class='d-flex justify-content-center'>
@@ -83,6 +86,7 @@ class KontakDataTable extends DataTable
             Column::make('id')->hidden(),
             Column::make('name'),
             Column::make('email'),
+            Column::make('phone'),
             Column::make('subject'),
             Column::make('message'),
             Column::computed('action')
