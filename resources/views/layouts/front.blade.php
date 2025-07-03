@@ -57,6 +57,11 @@
         .my-float {
             margin-top: 16px;
         }
+
+        figure.image img {
+            height: auto !important;
+            object-fit: contain !important;
+        }
     </style>
 
     @stack('css')
