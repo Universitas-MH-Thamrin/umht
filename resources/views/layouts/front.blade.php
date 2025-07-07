@@ -248,16 +248,6 @@
                             </div>
 
                             <div class="header1-buttons">
-                                <div class="contact-btn">
-                                    <div class="icon">
-                                        <img src="{{ asset('techxen') }}/assets/img/icons/header1-icon.png"
-                                            alt="">
-                                    </div>
-                                    <div class="headding">
-                                        <p>PMB 2024</p>
-                                        <a href="https://pmb.thamrin.ac.id/login">Daftar Sekarang!</a>
-                                    </div>
-                                </div>
                                 <div class="button">
                                     <a class="theme-btn1" href="https://pmb.thamrin.ac.id/login">PMB Thamrin <span><i
                                                 class="fa-solid fa-arrow-right"></i></span></a>
