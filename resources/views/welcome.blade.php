@@ -277,7 +277,7 @@
                         <div class="blog-box" data-aos="zoom-in-up" data-aos-duration="1100">
                             <div class="image image-anime">
                                 <img src="{{ $item->thumbnail ? url(Storage::url($item->thumbnail)) : asset('img/img-placeholder.webp') }}"
-                                    alt="" style="height: 300px;object-fit: cover;">
+                                    alt="" style="width: 400px; height: 300px; object-fit: cover;">
                             </div>
                             <div class="heading">
                                 <div class="tags">

@@ -62,7 +62,7 @@
                                 <div class="sidebar-blogs">
                                     <div class="">
                                         <div class="image">
-                                            <img src="{{ $item->thumbnail ? url(Storage::url($item->thumbnail)) : asset('img/img-placeholder.webp') }}" alt="">
+                                            <img src="{{ $item->thumbnail ? url(Storage::url($item->thumbnail)) : asset('img/img-placeholder.webp') }}" alt="" style="width: 400px; height: 300px; object-fit: cover;">
                                         </div>
                                     </div>
                                     <div class="heading">
