@@ -62,6 +62,49 @@
             height: auto !important;
             object-fit: contain !important;
         }
+
+        .owl-carousel .item {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            min-height: 280px;
+        }
+
+        #testimonialCarousel .carousel-control-prev,
+        #testimonialCarousel .carousel-control-next {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+
+        #testimonialCarousel .carousel-control-prev-icon,
+        #testimonialCarousel .carousel-control-next-icon {
+            background-color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            background-size: 60% 60%;
+        }
+
+        #testimonialCarousel .carousel-control-prev {
+            left: -60px;
+        }
+
+        #testimonialCarousel .carousel-control-next {
+            right: -60px;
+        }
+
+        .carousel-item {
+            padding: 40px;
+        }
     </style>
 
     @stack('css')

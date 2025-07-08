@@ -28,6 +28,7 @@ Route::get('foto_folder/{folder_id}', [\App\Http\Controllers\FrontPageController
 Route::get('/video', [\App\Http\Controllers\FrontPageController::class, 'video'])->name('front.video');
 Route::get('video_folder/{folder_id}', [\App\Http\Controllers\FrontPageController::class, 'video_folder'])->name('front.video_folder');
 Route::get('/akreditasi', [\App\Http\Controllers\AccreditationController::class, 'getAll'])->name('akreditasi.getAll');
+Route::get('/testimonial', [\App\Http\Controllers\User\TestimonialController::class, 'index'])->name('testimonial.index');
 
 Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.', 'middleware' => 'auth'], function() {
     Route::get('/', [\App\Http\Controllers\DashboardController::class, 'index'])->name('index');
