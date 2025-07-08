@@ -242,6 +242,14 @@
                 </a>
               </li>
 
+              {{-- Testimoni --}}
+              <li>
+                <a href="{{ route('dashboard.testimonial.index') }}" class="waves-effect">
+                  <i class="bx bx-medal"></i>
+                  <span key="t-chat">Testimoni</span>
+                </a>
+              </li>
+
               {{-- Informasi --}}
               <li>
                 <a href="javascript: void(0);" class="has-arrow waves-effect">

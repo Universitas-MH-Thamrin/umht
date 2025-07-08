@@ -56,6 +56,7 @@ Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.', 'middleware' => 'au
     Route::resource('page', \App\Http\Controllers\PageController::class)->except('show');
     Route::resource('dynamic_menu', \App\Http\Controllers\DynamicMenuController::class)->except('show');
     Route::resource('akreditasi', App\Http\Controllers\AccreditationController::class)->except('show');
+    Route::resource('testimonial', \App\Http\Controllers\Dashboard\TestimonialController::class);
 
     Route::get('galeri_dropzone/{folder_id}/upload',[App\Http\Controllers\GaleriController::class, 'fileStoreDropzone'])->name('galeri.fileDropzone');
     Route::post('galeri_dropzone/{folder_id}/upload/store',[App\Http\Controllers\GaleriController::class, 'fileStore'])->name('galeri.fileStore');
