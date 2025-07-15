@@ -11,14 +11,14 @@
 
                                 <div class="d-flex justify-content-between">
                                     <h4 class="card-title">{{ $title }}</h4>
-                                    <a href="{{ route('dashboard.slider.index') }}" class="btn btn-warning">Kembali</a>
+                                    <a href="{{ route('dashboard.carousel.index') }}" class="btn btn-warning">Kembali</a>
                                 </div>
                                 <hr>
 
                                 @include('components.flash_messages')
 
                                 <form class="row g-3 needs-validation myForm" method="POST"
-                                    action="{{ route('dashboard.slider.update', $data->id) }}" enctype="multipart/form-data">
+                                    action="{{ route('dashboard.carousel.update', $data->id) }}" enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
                                     <div class="col-md-12">
