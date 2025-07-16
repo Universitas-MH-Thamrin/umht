@@ -476,12 +476,32 @@
                                 13550 </p>
                         </div>
                         <ul class="social-icon">
-                            <li><a href="https://www.linkedin.com/school/universitas-mh-thamrin/?originalSubdomain=id"><i
-                                        class="fa-brands fa-linkedin-in"></i></a></li>
-                            <li><a href="https://www.youtube.com/c/UNIVERSITASMHTHAMRINCHANNEL/videos"><i
-                                        class="fa-brands fa-youtube"></i></a></li>
-                            <li><a href="https://www.instagram.com/universitasmhthamrin/"><i
-                                        class="fa-brands fa-instagram"></i></a></li>
+                            <li>
+                                {{-- https://www.linkedin.com/school/universitas-mh-thamrin/ --}}
+                                <a href="https://www.linkedin.com/school/universitas-mh-thamrin/?originalSubdomain=id"><i
+                                        class="fa-brands fa-linkedin-in"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.youtube.com/c/UNIVERSITASMHTHAMRINCHANNEL/videos"><i
+                                        class="fa-brands fa-youtube"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.instagram.com/universitasmhthamrin/"><i
+                                        class="fa-brands fa-instagram"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.tiktok.com/@universitasmhthamrin?_t=ZS-8y49uEm9Q0d&_r=1"><i
+                                        class="fa-brands fa-tiktok"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.facebook.com/thamrin.ac.id"><i
+                                        class="fa-brands fa-facebook"></i>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>

@@ -47,7 +47,7 @@
                             </div>
                             <div class="heading">
                                 <h5>Email</h5>
-                                <a href="mailto:info@thamrin.ac.id" class="text">info@thamrin.ac.id</a>
+                                <a href="mailto:marketing@thamrin.ac.id" class="text">marketing@thamrin.ac.id</a>
                             </div>
                         </div>
 
