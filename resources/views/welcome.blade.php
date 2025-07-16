@@ -158,7 +158,7 @@
                     @foreach ($carousels as $item)
                         <div class="single-slider">
                             <div class="slider-img">
-                                <img src="{{ $item->image ? url(Storage::url($item->image)) : asset('techxen/assets/img/bg/hero6-bg1.png') }}" alt="" style="height: 450px;object-fit: cover;width:100%;">
+                                <img src="{{ $item->image ? url(Storage::url($item->image)) : asset('techxen/assets/img/bg/hero6-bg1.png') }}" alt="" style="aspect-ratio: 16/9; width: 100%; object-fit: cover;">
                             </div>
                             <div class="heading">
                                 <h3><a href="{{ $item->btn_link }}">{{ $item->title }}</a></h3>
