@@ -245,13 +245,43 @@
 
     <!--=====CTA AREA START=======-->
 
-    <div class="cta4">
+    {{-- <div class="cta4">
         <a href="{{ $cta ? $cta->link : 'javascript:void(0)' }}" target="_blank">
             <div class="container">
                 <img src="{{ $cta ? url(Storage::url($cta->image)) : asset('img/cta.jpg') }}" alt=""
                     style="width: 100%;">
             </div>
         </a>
+    </div> --}}
+
+    <div class="cta-carousel my-4">
+        @if($ctas->count())
+            <div id="ctaCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    @foreach($ctas as $index => $cta)
+                        <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+                            <a href="{{ $cta->link ?? 'javascript:void(0)' }}" target="_blank">
+                                <img src="{{ url(Storage::url($cta->image)) }}"
+                                     class="d-block w-100"
+                                     alt="CTA Image {{ $index + 1 }}"
+                                     style="max-height: 500px; object-fit: cover;">
+                            </a>
+                        </div>
+                    @endforeach
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#ctaCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#ctaCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        @else
+            <img src="{{ asset('img/cta.jpg') }}" class="d-block w-100" alt="Default CTA" />
+        @endif
     </div>
 
     <!--=====CTA AREA END=======-->

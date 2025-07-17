@@ -113,11 +113,11 @@ class CtaController extends Controller
 
     public function set_active(Request $request, $id)
     {
-        $ctas = Cta::all();
-        foreach ($ctas as $item) {
-            $item->visible = 0;
-            $item->save();
-        }
+        // $ctas = Cta::all();
+        // foreach ($ctas as $item) {
+        //     $item->visible = 0;
+        //     $item->save();
+        // }
 
         $cta = Cta::findOrFail($id);
 

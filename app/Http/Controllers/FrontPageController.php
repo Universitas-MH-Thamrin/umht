@@ -25,7 +25,7 @@ class FrontPageController extends Controller
         $carousels = Carousel::where('visible', 1)->orderBy('id', 'DESC')->get();
         $beritas = Berita::where('visible', 1)->orderBy('id', 'DESC')->take(3)->get();
         $layanans = Layanan::where('visible', 1)->orderBy('urutan', 'ASC')->get();
-        $cta = Cta::where('visible', 1)->first();
+        $ctas = Cta::where('visible', 1)->orderBy('created_at', 'DESC')->get();
         $hero_banner = HeroBanner::where('visible', 1)->first();
         $data = [
             'title' => env('APP_NAME'),
@@ -33,7 +33,7 @@ class FrontPageController extends Controller
             'carousels' => $carousels,
             'beritas' => $beritas,
             'layanans' => $layanans,
-            'cta' => $cta,
+            'ctas' => $ctas,
             'hero_banner' => $hero_banner,
         ];
         return view('welcome', $data);
