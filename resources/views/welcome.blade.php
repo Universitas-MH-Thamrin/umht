@@ -372,4 +372,20 @@
     </div>
 
     <!--=====SERVICE AREA END=======-->
+
+    @push('script')
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const ctaCarousel = document.querySelector('#ctaCarousel');
+
+                if (ctaCarousel) {
+                    const carousel = new bootstrap.Carousel(ctaCarousel, {
+                        interval: 5000, // 5 detik
+                        ride: 'carousel',
+                        pause: false // agar tetap jalan walau di-hover, bisa dihapus kalau tidak ingin
+                    });
+                }
+            });
+        </script>
+    @endpush
 @endsection
