@@ -40,7 +40,7 @@ class CtaDataTable extends DataTable
                             " . csrf_field() . "
                             " . method_field('PUT') . "
                             <button type='submit' class='btn btn-sm btn-primary me-1'>
-                                Set Aktif
+                                Ubah Status
                             </button>
                         </form>
                         <a href='" . route('dashboard.cta.edit', $data->id) . "' class='btn btn-sm btn-warning me-1'>

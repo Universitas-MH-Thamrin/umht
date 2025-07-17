@@ -122,12 +122,19 @@ class CtaController extends Controller
         $cta = Cta::findOrFail($id);
 
         try {
-            $cta->visible = 1;
-            $cta->save();
+
+            if ($cta->visible) {
+                $cta->visible = 0;
+                $cta->save();
+            } else {
+                $cta->visible = 1;
+                $cta->save();
+            }
+
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
 
-        return redirect()->back()->with('success', 'Berhasil mengatifkan CTA / Poster Image.');
+        return redirect()->back()->with('success', 'Berhasil mengubah visible CTA / poster image.');
     }
 }
