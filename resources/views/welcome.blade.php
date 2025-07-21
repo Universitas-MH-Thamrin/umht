@@ -254,18 +254,19 @@
         </a>
     </div> --}}
 
-    <div class="cta-carousel my-4">
+    <div class="cta-carousel mt-8">
         @if($ctas->count())
             <div id="ctaCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     @foreach($ctas as $index => $cta)
                         <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
-                            <a href="{{ $cta->link ?? 'javascript:void(0)' }}" target="_blank">
-                                <img src="{{ url(Storage::url($cta->image)) }}"
-                                     class="d-block w-100"
-                                     alt="CTA Image {{ $index + 1 }}"
-                                     style="max-height: 500px; object-fit: cover;">
-                            </a>
+                            <div class="container">
+                                <a href="{{ $cta->link ?? 'javascript:void(0)' }}" target="_blank">
+                                    <img src="{{ url(Storage::url($cta->image)) }}"
+                                         alt="CTA Image {{ $index + 1 }}"
+                                         style="width: 100%;">
+                                </a>
+                            </div>
                         </div>
                     @endforeach
                 </div>
