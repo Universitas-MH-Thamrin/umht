@@ -61,7 +61,7 @@ class AccreditationController extends Controller
             $data = $request->validate([
                 'name' => ['required', 'string', 'max:255'],
                 'expirated' => ['required', 'date'],
-                'document' => ['required', 'file', 'mimes:pdf', 'between:0,2048'],
+                'document' => ['required', 'file', 'mimes:pdf', 'max:5120'],
             ]);
 
             if ($request->hasFile('document')) {
@@ -117,7 +117,7 @@ class AccreditationController extends Controller
             $data = $request->validate([
                 'name' => ['required', 'string', 'max:255'],
                 'expirated' => ['required', 'date'],
-                'document' => ['nullable', 'file', 'mimes:pdf', 'between:0,2048'],
+                'document' => ['nullable', 'file', 'mimes:pdf', 'max:5120'],
             ]);
 
             // Cek apakah ada file baru yang diunggah
