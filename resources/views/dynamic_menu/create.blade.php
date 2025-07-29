@@ -91,6 +91,11 @@
                                         </div>
                                     </div>
 
+                                    <div class="form-group col-md-4 mt-3">
+                                        <label>Background Image <span class="text-danger">*</span></label>
+                                        <input type="file" class="form-control" name="hero_img">
+                                    </div>
+
                                     <!-- end col -->
                                     <div class="col-12">
                                         <button class="btn btn-primary formSubmitter" type="submit">Simpan</button>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Accreditation;
+use App\Models\DynamicMenu;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -205,9 +206,12 @@ class AccreditationController extends Controller
             ->orderByDesc('name')
             ->paginate(10);
 
+        $menu = DynamicMenu::where('slug', 'sertifikat-akreditasi')->first();
+
         return view('akreditasi', [
             'accreditations' => $accreditations,
             'title' => 'Sertifikat Akreditasi',
+            'hero_img' => $menu?->hero_img,
         ]);
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Berita;
 use App\Models\Carousel;
 use App\Models\Cta;
+use App\Models\DynamicMenu;
 use App\Models\Faq;
 use App\Models\Folder;
 use App\Models\Galeri;
@@ -71,9 +72,11 @@ class FrontPageController extends Controller
     public function page_show(Request $request, $slug)
     {
         $page = Page::where('slug', $slug)->firstOrFail();
+        $menu = DynamicMenu::where('slug', $slug)->first();
         $data = [
             'title' => $page->nama,
-            'data' => $page
+            'data' => $page,
+            'hero_img' => $menu?->hero_img,
         ];
 
         return view('page_detail', $data);

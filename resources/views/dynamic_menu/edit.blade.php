@@ -91,6 +91,16 @@
                                         </div>
                                     </div>
 
+                                    <div class="form-group col-md-4 mt-3">
+                                        <label>Background Image</label>
+                                        @if ($data->hero_img)
+                                            <br>
+                                            <img src="{{ MyHelper::get_avatar($data->hero_img) }}" alt="" style="width: 100px;">
+                                            <br><br>
+                                        @endif
+                                        <input type="file" class="form-control" name="hero_img">
+                                    </div>
+
                                     <!-- end col -->
                                     <div class="col-12">
                                         <button class="btn btn-primary formSubmitter" type="submit">Simpan</button>

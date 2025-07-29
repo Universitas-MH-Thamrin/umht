@@ -2,7 +2,7 @@
 
 @section('content')
   <!--=====HERO AREA START=======-->
-  <div class="common-hero">
+  {{-- <div class="common-hero">
     <div class="container">
       <div class="text-center row align-items-center">
         <div class="m-auto col-lg-8">
@@ -19,6 +19,24 @@
         </div>
       </div>
     </div>
+  </div> --}}
+  @php
+    $heroImageUrl = $hero_img ? asset(str_replace('public/', 'storage/', $hero_img)) : asset('img/img-1920x640.png');
+  @endphp
+  <div
+      class="common-hero position-relative text-white"
+      style="background: url('{{ $heroImageUrl }}') center center / cover no-repeat; min-height: 500px;">
+
+      <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(to top, rgb(37, 100, 235), transparent, transparent);"></div>
+
+       <div class="position-relative container text-center px-4 d-flex flex-column justify-content-center align-items-center" style="min-height: 100%; padding-top: 150px">
+          <h1 class="fw-bold mb-3" style="font-size: 2.5rem;">{{ $title }}</h1>
+          <div class="d-flex justify-content-center align-items-center gap-2 small" style="color: rgba(255,255,255,0.85);">
+              <a href="{{ route('front.index') }}" class="text-white text-decoration-underline">Home</a>
+              <span>&gt; Halaman &gt;</span>
+              <span>{{ $title }}</span>
+          </div>
+        </div>
   </div>
 
   <!--=====SERVICE DETAILS AREA START=======-->

@@ -7,6 +7,7 @@ use App\Models\DynamicMenu;
 use App\Models\Menu;
 use App\Models\Page;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class DynamicMenuController extends Controller
@@ -33,10 +34,20 @@ class DynamicMenuController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'hero_img' => ['required', 'file', 'mimes:jpg,jpeg,png,bmp,pdf,webp', 'max:5120'],
+        ]);
+
         try {
             $dynamic_menu = new DynamicMenu();
             $dynamic_menu->nama = $request->nama;
             $dynamic_menu->slug = Str::slug($request->nama);
+
+            if ($request->hasFile('hero_img')) {
+                $filename = Str::random(32) . '.' . $request->file('hero_img')->getClientOriginalExtension();
+                $hero_img_path = $request->file('hero_img')->storeAs('public/hero_img', $filename);
+                $dynamic_menu->hero_img = isset($hero_img_path) ? $hero_img_path : '';
+            }
 
             // pengcodean level menu
             if ($request->level == 1) {
@@ -63,8 +74,14 @@ class DynamicMenuController extends Controller
                 $dynamic_menu->page_id = $request->page_id;
                 $dynamic_menu->link = NULL;
             } else {
-                $dynamic_menu->page_id = NULL;
-                $dynamic_menu->link = $request->link;
+
+                if (empty($request->link)) {
+                    $dynamic_menu->page_id = NULL;
+                    $dynamic_menu->link = '#';
+                } else {
+                    $dynamic_menu->page_id = NULL;
+                    $dynamic_menu->link = $request->link;
+                }
             }
 
             $dynamic_menu->save();
@@ -92,6 +109,10 @@ class DynamicMenuController extends Controller
     {
         $dynamic_menu = DynamicMenu::findOrFail($id);
 
+        $request->validate([
+            'hero_img' => ['required', 'file', 'mimes:jpg,jpeg,png,bmp,pdf,webp', 'max:5120'],
+        ]);
+
         try {
             $dynamic_menu->nama = $request->nama;
             $dynamic_menu->slug = Str::slug($request->nama);
@@ -99,14 +120,31 @@ class DynamicMenuController extends Controller
             $dynamic_menu->level = $request->level;
             $dynamic_menu->code = $request->code;
 
+            if ($request->hasFile('hero_img')) {
+                if($dynamic_menu->hero_img != '') {
+                    Storage::delete($dynamic_menu->hero_img);
+                }
+
+                $filename = Str::random(32) . '.' . $request->file('hero_img')->getClientOriginalExtension();
+                $hero_img_path = $request->file('hero_img')->storeAs('public/hero_img', $filename);
+                $dynamic_menu->hero_img = isset($hero_img_path) ? $hero_img_path : '';
+            }
+
             // cek tipe menu
             if ($request->tipe_menu == 'page') {
                 $dynamic_menu->page_id = $request->page_id;
                 $dynamic_menu->link = NULL;
             } else {
-                $dynamic_menu->page_id = NULL;
-                $dynamic_menu->link = $request->link;
+
+                if (empty($request->link)) {
+                    $dynamic_menu->page_id = NULL;
+                    $dynamic_menu->link = '#';
+                } else {
+                    $dynamic_menu->page_id = NULL;
+                    $dynamic_menu->link = $request->link;
+                }
             }
+            $dynamic_menu->hero_img = isset($hero_img_path) ? $hero_img_path : $dynamic_menu->hero_img;
 
             $dynamic_menu->save();
         } catch (\Exception $e) {

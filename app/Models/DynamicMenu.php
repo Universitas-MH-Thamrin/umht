@@ -15,4 +15,16 @@ class DynamicMenu extends Model
             'nama' => ''
         ]);
     }
+
+    protected $fillable = [
+        'code',
+        'level',
+        'slug',
+        'nama',
+        'link',
+        'page_id',
+        'urutan',
+        'visible',
+        'hero_img',
+    ];
 }
