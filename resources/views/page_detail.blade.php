@@ -20,7 +20,7 @@
     </div> --}}
 
     @php
-        $heroImageUrl = $hero_img ? asset(\Illuminate\Support\Facades\Storage::url($hero_img)) : asset(\Illuminate\Support\Facades\Storage::url('img/img-1920x640.png'));
+        $heroImageUrl = $hero_img ? asset(\Illuminate\Support\Facades\Storage::url($hero_img)) : asset(\Illuminate\Support\Facades\Storage::url('public/img/img-1920x640.png'));
     @endphp
     <div
         class="common-hero position-relative text-white"
