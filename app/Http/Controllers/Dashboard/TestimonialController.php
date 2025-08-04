@@ -107,49 +107,53 @@ class TestimonialController extends Controller
                 'name' => ['required', 'string', 'max:255'],
                 'profession' => ['nullable', 'string', 'max:255'],
                 'description' => ['required', 'string'],
-                'image' => ['nullable', 'file', 'mimes:jpg,jpeg,png', 'between:0,2048'],
+                'image' => ['nullable', 'file', 'mimes:jpg,jpeg,png', 'max:2048'],
             ]);
 
+            $timestamp = now()->timestamp;
+            $sluggedName = Str::slug($request->name);
+
+            // Jika ada file gambar baru diunggah
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
-                $timestamp = now()->timestamp;
-                $formattedName = Str::slug($request->name) . "-{$timestamp}." . $image->getClientOriginalExtension();
+                $formattedName = "{$sluggedName}-{$timestamp}." . $image->getClientOriginalExtension();
+                $path = $image->storeAs('testimonial', $formattedName, 'public');
 
-                if ($tertimonial->image && Storage::disk('public')->exists($testimonial->image)) {
-                    Storage::disk('public')->delete($tertimonial->image);
+                // Hapus gambar lama jika ada
+                if ($testimonial->image && Storage::disk('public')->exists($testimonial->image)) {
+                    Storage::disk('public')->delete($testimonial->image);
                 }
+
+                $data['image'] = $path;
             } else {
+                // Tidak upload gambar, tapi mungkin mengganti nama → rename file lama
+                if ($testimonial->image && Storage::disk('public')->exists($testimonial->image)) {
+                    $oldPath = $testimonial->image;
+                    $extension = pathinfo($oldPath, PATHINFO_EXTENSION);
+                    $newFileName = "{$sluggedName}-{$timestamp}.{$extension}";
+                    $newPath = "testimonial/{$newFileName}";
 
-                if ($testimonial->image) {
-                    $oldImagePath = $testimonial->image;
-                    $oldImageExtension = pathinfo($oldImagePath, PATHINFO_EXTENSION);
-                    $timestamp = now()->timestamp;
-                    $newImageName = Str::slug($request->name) . "-{$timestamp}." . $oldImageExtension;
-                    $newImagePath = 'testimonial/' . $newImageName;
+                    // Pastikan direktori testimonial ada
+                    Storage::disk('public')->makeDirectory('testimonial');
 
-                    if (Storage::disk('public')->exists($oldImagePath)) {
-                        Storage::disk('public')->move($oldImagePath, $newImagePath);
-                        $data['image'] = $newImagePath;
-                    } else {
-                        $data['image'] = $testimonial->image;
-                    }
+                    Storage::disk('public')->move($oldPath, $newPath);
+                    $data['image'] = $newPath;
+                } else {
+                    // Tidak ada perubahan gambar
+                    $data['image'] = $testimonial->image;
                 }
             }
 
+            // Update data testimonial
             $testimonial->update($data);
 
             DB::commit();
+
+            return redirect()->back()->with('success', 'Berhasil menyimpan data.');
         } catch (\Exception $e) {
             DB::rollBack();
-
-            return redirect()
-                ->back()
-                ->with('error', 'Terjadi kesalahan saat memperbaharui data: ' . $e->getMessage());
+            return redirect()->back()->with('error', 'Terjadi kesalahan saat memperbarui data: ' . $e->getMessage());
         }
-
-        return redirect()
-            ->back()
-            ->with('success', 'Berhasil menyimpan data.');
     }
 
     public function destroy(Testimonial $testimonial)
