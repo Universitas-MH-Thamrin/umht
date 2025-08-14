@@ -23,71 +23,89 @@
   @php
     $heroImageUrl = $hero_img ? asset(\Illuminate\Support\Facades\Storage::url($hero_img)) : asset(\Illuminate\Support\Facades\Storage::url('public/img/img-1920x640.png'));
   @endphp
-  <div
-      class="common-hero position-relative text-white"
-      style="background: url('{{ $heroImageUrl }}') center center / cover no-repeat; min-height: 500px;">
+  <div class="common-hero position-relative text-white text-center">
 
-      <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(to top, rgb(37, 100, 235), transparent, transparent);"></div>
+    {{-- Versi Desktop (img) --}}
+    <img src="{{ $heroImageUrl }}"
+         alt="{{ $title }}"
+         class="w-100 h-auto d-none d-md-block">
 
-       <div class="position-relative container text-center px-4 d-flex flex-column justify-content-center align-items-center" style="min-height: 100%; padding-top: 150px">
-          <h1 class="fw-bold mb-3" style="font-size: 2.5rem;">{{ $title }}</h1>
-          <div class="d-flex justify-content-center align-items-center gap-2 small" style="color: rgba(255,255,255,0.85);">
-              <a href="{{ route('front.index') }}" class="text-white text-decoration-underline">Home</a>
-              <span>&gt; Halaman &gt;</span>
-              <span>{{ $title }}</span>
-          </div>
+    {{-- Versi Mobile (background) --}}
+    <div class="d-block d-md-none position-absolute top-0 start-0 w-100 h-100"
+        style="background: url('{{ $heroImageUrl }}') center center / cover no-repeat;">
+    </div>
+
+    {{-- Overlay Gradient --}}
+    <div class="position-absolute top-0 start-0 w-100 h-100"
+         style="background: linear-gradient(to top, rgb(37, 100, 235), transparent, transparent);"></div>
+
+    {{-- Text Content --}}
+    <div class="position-absolute w-100 h-100 text-center px-4 d-flex flex-column justify-content-center align-items-center"
+         style="padding-top: 150px;">
+        <h1 class="fw-bold mb-3 fs-1 md:fs-2">{{ $title }}</h1>
+        <div class="d-flex justify-content-center align-items-center gap-2 small fs-5 md:fs-4"
+             style="color: rgba(255,255,255,0.85);">
+            <a href="{{ route('front.index') }}" class="text-white text-decoration-underline">Home</a>
+            <span>&gt; Halaman &gt;</span>
+            <span>{{ $title }}</span>
         </div>
-  </div>
+    </div>
+</div>
 
   <!--=====SERVICE DETAILS AREA START=======-->
   <div class="service-details-area-all sp">
     <div class="container">
-      <div class="row">
-        <div class="m-auto col-lg-8">
-          <div class="service-details-post">
-            <article>
-                @if($testimonials->count())
-                    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            @foreach($testimonials as $index => $testimonial)
-                                <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
-                                    <div class="d-flex flex-row align-items-start gap-4">
-                                        <div class="flex-shrink-0">
-                                            <img src="{{ asset('storage/' . $testimonial->image) }}"
-                                                alt="{{ $testimonial->name }}"
-                                                class="rounded-circle"
-                                                style="width: 100px; height: 100px; object-fit: cover;">
-                                        </div>
-                                        <div class="flex-grow-1">
-                                            <div class="mb-2">
-                                                <h5 class="mb-1">{{ $testimonial->name }}</h5>
-                                                <p class="text-muted mb-0">{{ $testimonial->profession }}</p>
-                                            </div>
-                                            <div>
-                                                <p class="fst-italic">"{{ $testimonial->description }}"</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
+        <div class="row">
+            <div class="m-auto col-lg-8">
+                <div class="service-details-post">
+                    <article>
+                        @if($testimonials->count())
+                            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    @foreach($testimonials as $index => $testimonial)
+                                        <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+                                            <div class="d-flex flex-column flex-md-row align-items-center align-items-md-start gap-3 gap-md-4 text-center text-md-start">
 
-                        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" style="background-color: black;"></span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" style="background-color: black;"></span>
-                        </button>
-                    </div>
-                @else
-                    <p class="text-center">Belum ada testimonial alumni.</p>
-                @endif
-            </article>
-          </div>
+                                                {{-- Foto --}}
+                                                <div class="flex-shrink-0">
+                                                    <img src="{{ asset('storage/' . $testimonial->image) }}"
+                                                         alt="{{ $testimonial->name }}"
+                                                         class="rounded-circle"
+                                                         style="width: 100px; height: 100px; object-fit: cover;">
+                                                </div>
+
+                                                {{-- Teks --}}
+                                                <div class="flex-grow-1">
+                                                    <div class="mb-2">
+                                                        <h5 class="mb-1">{{ $testimonial->name }}</h5>
+                                                        <p class="text-muted mb-0">{{ $testimonial->profession }}</p>
+                                                    </div>
+                                                    <div>
+                                                        <p class="fst-italic">"{{ $testimonial->description }}"</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+
+                                {{-- Navigasi Carousel --}}
+                                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" style="background-color: black;"></span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" style="background-color: black;"></span>
+                                </button>
+                            </div>
+                        @else
+                            <p class="text-center">Belum ada testimonial alumni.</p>
+                        @endif
+                    </article>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
+</div>
   <!--=====SERVICE DETAILS AREA END=======-->
 
   @push('js')

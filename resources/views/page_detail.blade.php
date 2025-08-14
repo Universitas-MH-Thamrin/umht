@@ -22,15 +22,28 @@
     @php
         $heroImageUrl = $hero_img ? asset(\Illuminate\Support\Facades\Storage::url($hero_img)) : asset(\Illuminate\Support\Facades\Storage::url('public/img/img-1920x640.png'));
     @endphp
-    <div
-        class="common-hero position-relative text-white"
-        style="background: url('{{ $heroImageUrl }}') center center / cover no-repeat; min-height: 500px;">
+    <div class="common-hero position-relative text-white text-center">
 
-        <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(to top, rgb(37, 100, 235), transparent, transparent);"></div>
+        {{-- Versi Desktop (img) --}}
+        <img src="{{ $heroImageUrl }}"
+             alt="{{ $data->nama }}"
+             class="w-100 h-auto d-none d-md-block">
 
-        <div class="position-relative container text-center px-4 d-flex flex-column justify-content-center align-items-center" style="min-height: 100%; padding-top: 150px">
-            <h1 class="fw-bold mb-3" style="font-size: 2.5rem;">{{ $data->nama }}</h1>
-            <div class="d-flex justify-content-center align-items-center gap-2 small" style="color: rgba(255,255,255,0.85);">
+        {{-- Versi Mobile (background) --}}
+        <div class="d-block d-md-none position-absolute top-0 start-0 w-100 h-100"
+            style="background: url('{{ $heroImageUrl }}') center center / cover no-repeat;">
+        </div>
+
+        {{-- Overlay Gradient --}}
+        <div class="position-absolute top-0 start-0 w-100 h-100"
+             style="background: linear-gradient(to top, rgb(37, 100, 235), transparent, transparent);"></div>
+
+        {{-- Text Content --}}
+        <div class="position-absolute w-100 h-100 text-center px-4 d-flex flex-column justify-content-center align-items-center"
+             style="padding-top: 150px;">
+            <h1 class="fw-bold mb-3 fs-1 md:fs-2">{{ $data->nama }}</h1>
+            <div class="d-flex justify-content-center align-items-center gap-2 small fs-5 md:fs-4"
+                 style="color: rgba(255,255,255,0.85);">
                 <a href="{{ route('front.index') }}" class="text-white text-decoration-underline">Home</a>
                 <span>&gt; Halaman &gt;</span>
                 <span>{{ $data->nama }}</span>
