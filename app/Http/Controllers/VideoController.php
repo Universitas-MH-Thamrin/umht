@@ -34,7 +34,7 @@ class VideoController extends Controller
         $request->validate([
             'nama' => ['nullable'],
             'visible' => ['nullable'],
-            'file' => ['required', 'file', 'mimes:mp4,mov,avi', 'between:0,102400'],
+            'file' => ['required', 'file', 'mimes:mp4,mov,avi', 'max:307200'],
         ]);
 
         try {
@@ -71,7 +71,7 @@ class VideoController extends Controller
         $video = Video::findOrFail($id);
         $request->validate([
             'nama' => ['nullable'],
-            'file' => ['nullable', 'file', 'mimes:mp4,mov,avi', 'between:0,102400'],
+            'file' => ['nullable', 'file', 'mimes:mp4,mov,avi', 'max:307200'],
         ]);
 
         try {
