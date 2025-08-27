@@ -102,6 +102,11 @@
             right: -60px;
         }
 
+        #testimonialCarousel .carousel-item {
+            height: auto !important;
+            min-height: 280px;
+        }
+
         .carousel-item {
             padding: 40px;
         }
