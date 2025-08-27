@@ -110,7 +110,7 @@ class DynamicMenuController extends Controller
         $dynamic_menu = DynamicMenu::findOrFail($id);
 
         $request->validate([
-            'hero_img' => ['required', 'file', 'mimes:jpg,jpeg,png,bmp,pdf,webp', 'max:5120'],
+            'hero_img' => ['nullable', 'file', 'mimes:jpg,jpeg,png,bmp,pdf,webp', 'max:5120'],
         ]);
 
         try {
